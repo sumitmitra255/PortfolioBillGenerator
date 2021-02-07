@@ -9,7 +9,6 @@ import { productListActionGenerator } from '../Actions/productActions'
 import { billsListActionGenerator } from '../Actions/billsActions'
 import { useStyles } from '../css/materialuistyles'
 import CanvasJSReact from '..//assets/canvasjs.react'
-import '../css/dashboard.css'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import { Dashboard } from './Dashboard'
 var CanvasJSChart = CanvasJSReact.CanvasJSChart
@@ -72,6 +71,7 @@ export const Home = (props) => {
 		<>
 			<LoggedInNavBar />
 			<Dashboard />
+			<Charts />
 		</>
 	)
 }

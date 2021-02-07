@@ -9,6 +9,8 @@ import { useHistory } from 'react-router-dom'
 import { ProductForm } from './ProductForm'
 import { useState } from 'react'
 import { Button, TableCell } from '@material-ui/core'
+import EditIcon from '@material-ui/icons/Edit'
+import DeleteIcon from '@material-ui/icons/Delete'
 
 export const DisplayProduct = (props) => {
 	const { ProductEle } = props
@@ -76,7 +78,7 @@ export const DisplayProduct = (props) => {
 						}}
 						fullWidth
 						onClick={() => setEditToggle(true)}>
-						Edit
+						<EditIcon />
 					</Button>
 				</TableCell>
 			)}
@@ -87,7 +89,7 @@ export const DisplayProduct = (props) => {
 					}}
 					fullWidth
 					onClick={deleteProducts}>
-					Delete
+					<DeleteIcon />
 				</Button>
 			</TableCell>
 		</>

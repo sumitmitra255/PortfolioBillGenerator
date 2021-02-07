@@ -114,5 +114,8 @@
 	font-size: 20px;
 	font-weight: bold;
 	text-transform: uppercase;
-	color:white;
+	color: white;
+}
+.recentsdiv {
+	background-color: #4caf50;
 }

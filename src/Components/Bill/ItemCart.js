@@ -5,11 +5,12 @@ import { selectedItemListrActionGenerator } from '../../Actions/billsActions'
 import { Button } from '@material-ui/core'
 import { useStyles } from '../../css/materialuistyles'
 import '../../css/bill.css'
+import swal from 'sweetalert'
 export const ItemCart = (props) => {
 	const dispatch = useDispatch()
 	const classes = useStyles()
 	const stateProducts = useSelector((state) => state.selecteditems)
-	const [selectedProduct, setSelectedProduct] = useState({})
+	const [selectedProduct, setSelectedProduct] = useState()
 	const [quantity, setQuantity] = useState(0)
 	const token = useSelector((state) => state.logintoken.token)
 	const productList = useSelector((state) => state.productlist)
@@ -18,13 +19,17 @@ export const ItemCart = (props) => {
 	})
 	const addToItemList = (e) => {
 		e.preventDefault()
-		const lineitemsdispatchobject = {
-			lineItems: selectedProduct,
-			quantity: quantity,
+		if (selectedProduct) {
+			const lineitemsdispatchobject = {
+				lineItems: selectedProduct,
+				quantity: quantity,
+			}
+			dispatch(
+				selectedItemListrActionGenerator(lineitemsdispatchobject, stateProducts)
+			)
+		} else {
+			swal('Please Choose Product first', '', 'error')
 		}
-		dispatch(
-			selectedItemListrActionGenerator(lineitemsdispatchobject, stateProducts)
-		)
 	}
 	return (
 		<>

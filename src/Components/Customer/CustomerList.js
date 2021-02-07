@@ -19,8 +19,10 @@ export const CustomerList = (props) => {
 	const dispatch = useDispatch()
 	const history = useHistory()
 	const [selectedcust, setSelectedcust] = useState()
+	const { toggle } = props
 	const token = useSelector((state) => state.logintoken.token)
 	const customerList = useSelector((state) => state.customerlist)
+	console.log(customerList)
 	const options = customerList.map((ele) => {
 		return { value: ele, label: `ID:${ele.name}-Email : ${ele.email})` }
 	})
@@ -29,13 +31,17 @@ export const CustomerList = (props) => {
 	}
 	return (
 		<>
-			<div className='fixedElement'>
-				<Selectsearch
-					options={options}
-					setter={setSelectedcust}
-					dispatcher={displayCustomer}
-				/>
-			</div>
+			{toggle ? (
+				''
+			) : (
+				<div className='fixedElement'>
+					<Selectsearch
+						options={options}
+						setter={setSelectedcust}
+						dispatcher={displayCustomer}
+					/>
+				</div>
+			)}
 			<TableContainer component={Paper} classes={{ label: 'my-class-name' }}>
 				<TableContainer aria-label='simple table'>
 					<TableHead>
@@ -47,15 +53,28 @@ export const CustomerList = (props) => {
 						</TableRow>
 					</TableHead>
 					<TableBody>
-						{customerList.map((ele) => {
-							return (
-								<>
-									<TableRow hover='true'>
-										<DisplayCustomer customerEle={ele} />
-									</TableRow>
-								</>
-							)
-						})}
+						{toggle
+							? customerList
+									.slice(-5)
+									.reverse()
+									.map((ele) => {
+										return (
+											<>
+												<TableRow hover='true'>
+													<DisplayCustomer customerEle={ele} />
+												</TableRow>
+											</>
+										)
+									})
+							: customerList.reverse().map((ele) => {
+									return (
+										<>
+											<TableRow hover='true'>
+												<DisplayCustomer customerEle={ele} />
+											</TableRow>
+										</>
+									)
+							  })}
 					</TableBody>
 				</TableContainer>
 			</TableContainer>

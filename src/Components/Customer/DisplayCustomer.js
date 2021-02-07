@@ -5,7 +5,8 @@ import {
 	deleteCustomerActionGenerator,
 } from '../../Actions/customerActions'
 import { useStyles } from '../../css/materialuistyles'
-
+import EditIcon from '@material-ui/icons/Edit'
+import DeleteIcon from '@material-ui/icons/Delete'
 import { useHistory } from 'react-router-dom'
 import { CustomerForm } from './CustomerForm'
 import { useState } from 'react'
@@ -77,7 +78,7 @@ export const DisplayCustomer = (props) => {
 						}}
 						fullWidth
 						onClick={() => setEditToggle(true)}>
-						Edit
+						<EditIcon />
 					</Button>
 				</TableCell>
 			)}
@@ -88,7 +89,7 @@ export const DisplayCustomer = (props) => {
 					}}
 					fullWidth
 					onClick={deleteCustomer}>
-					Delete
+					<DeleteIcon />
 				</Button>
 			</TableCell>
 		</>

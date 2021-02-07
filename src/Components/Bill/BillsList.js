@@ -18,6 +18,7 @@ import '../../css/bill.css'
 export const BillsList = (props) => {
 	const dispatch = useDispatch()
 	const history = useHistory()
+	const { toggle } = props
 	const [selectedBill, setSelectedBill] = useState()
 	const token = useSelector((state) => state.logintoken.token)
 	const billsList = useSelector((state) => state.billlist)
@@ -32,12 +33,15 @@ export const BillsList = (props) => {
 	}
 	return (
 		<>
-			
-			<Selectsearch
-				options={options}
-				setter={setSelectedBill}
-				dispatcher={displaybilldetail}
-			/>
+			{toggle ? (
+				''
+			) : (
+				<Selectsearch
+					options={options}
+					setter={setSelectedBill}
+					dispatcher={displaybilldetail}
+				/>
+			)}
 			<TableContainer component={Paper}>
 				<TableContainer aria-label='simple table'>
 					<TableHead>
@@ -48,13 +52,35 @@ export const BillsList = (props) => {
 						</TableRow>
 					</TableHead>
 					<TableBody>
-						{billsList.map((ele) => {
+						{/* {billsList.map((ele) => {
 							return (
 								<TableRow hover='true'>
 									<Displaybills billsEle={ele} />
 								</TableRow>
 							)
-						})}
+						})} */}
+						{toggle
+							? billsList
+									.slice(-5)
+									.reverse()
+									.map((ele) => {
+										return (
+											<>
+												<TableRow hover='true'>
+													<Displaybills billsEle={ele} />
+												</TableRow>
+											</>
+										)
+									})
+							: billsList.reverse().map((ele) => {
+									return (
+										<>
+											<TableRow hover='true'>
+												<Displaybills billsEle={ele} />
+											</TableRow>
+										</>
+									)
+							  })}
 					</TableBody>
 				</TableContainer>
 			</TableContainer>

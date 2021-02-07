@@ -36,27 +36,31 @@ export const createCustomerActionGenerator = (
 	token
 ) => {
 	return (dispatch) => {
-		axios
-			.post('/customers', formData, {
-				headers: { Authorization: `Bearer ${token}` },
-			})
-			.then((response) => {
-				if (response.data._id) {
-					const temp = [response.data]
-					const test = [...temp, ...customerList]
-					dispatch(setcustomerListData(test))
-					swal('Whoa!', `Customer Add Sucessful!`, 'success')
-				} else {
-					swal('Oops! Customer Add Failed!', response.data.message, 'error')
-				}
-			})
-			.catch((err) => {
-				swal(
-					'Server is LOST. Please Try Again after Sometime!',
-					err.message,
-					'error'
-				)
-			}, [])
+		if (formData) {
+			axios
+				.post('/customers', formData, {
+					headers: { Authorization: `Bearer ${token}` },
+				})
+				.then((response) => {
+					if (response.data._id) {
+						const temp = [response.data]
+						const test = [...temp, ...customerList]
+						dispatch(setcustomerListData(test))
+						swal('Whoa!', `Customer Add Sucessful!`, 'success')
+					} else {
+						swal('Oops! Customer Add Failed!', response.data.message, 'error')
+					}
+				})
+				.catch((err) => {
+					swal(
+						'Server is LOST. Please Try Again after Sometime!',
+						err.message,
+						'error'
+					)
+				}, [])
+		} else {
+			swal('Please enter Details First', '', 'error')
+		}
 	}
 }
 export const UpdateCustomerActionGenerator = (
@@ -67,29 +71,36 @@ export const UpdateCustomerActionGenerator = (
 	setEditToggle
 ) => {
 	return (dispatch) => {
-		axios
-			.put(`/customers/${customerEle._id}`, formdata, {
-				headers: { Authorization: `Bearer ${token}` },
-			})
-			.then((response) => {
-				if (response.data._id) {
-					const temp = response.data
-					const index = _.findIndex(customerList, { _id: temp._id })
-					const updatedCustomerList = R.update(index, temp, customerList)
-					dispatch(setcustomerListData(updatedCustomerList))
-					setEditToggle(false)
-					swal('Whoa!', `Dear  Customer Update is Sucessful!`, 'success')
-				} else {
-					swal('Oops! Customer Update Failed!', response.data.message, 'error')
-				}
-			})
-			.catch((err) => {
-				swal(
-					'Server is LOST. Please Try Again after Sometime!',
-					err.message,
-					'error'
-				)
-			}, [])
+		if (formdata) {
+			axios
+				.put(`/customers/${customerEle._id}`, formdata, {
+					headers: { Authorization: `Bearer ${token}` },
+				})
+				.then((response) => {
+					if (response.data._id) {
+						const temp = response.data
+						const index = _.findIndex(customerList, { _id: temp._id })
+						const updatedCustomerList = R.update(index, temp, customerList)
+						dispatch(setcustomerListData(updatedCustomerList))
+						setEditToggle(false)
+						swal('Whoa!', `Dear  Customer Update is Sucessful!`, 'success')
+					} else {
+						swal(
+							'Oops! Customer Update Failed!',
+							response.data.message,
+							'error'
+						)
+					}
+				})
+				.catch((err) => {
+					swal(
+						'Server is LOST. Please Try Again after Sometime!',
+						err.message,
+						'error'
+					)
+				}, [])
+		}
+		swal('Please Enter Details First', '', 'error')
 	}
 }
 
@@ -137,20 +148,24 @@ export const userCustomerDetailsActionGenerator = (
 	history
 ) => {
 	return (dispatch) => {
-		axios
-			.get(`/customers/${customer._id}`, {
-				headers: { Authorization: `Bearer ${token}` },
-			})
-			.then((response) => {
-				dispatch(setCustomerinfoData(response.data))
-				history.push('/customerinfo')
-			})
-			.catch((err) => {
-				swal(
-					'Server is LOST. Please Try Again after Sometime!',
-					err.message,
-					'error'
-				)
-			}, [])
+		if (customer) {
+			axios
+				.get(`/customers/${customer._id}`, {
+					headers: { Authorization: `Bearer ${token}` },
+				})
+				.then((response) => {
+					dispatch(setCustomerinfoData(response.data))
+					history.push('/customerinfo')
+				})
+				.catch((err) => {
+					swal(
+						'Server is LOST. Please Try Again after Sometime!',
+						err.message,
+						'error'
+					)
+				}, [])
+		} else {
+			swal('Please select a customer first', '', 'error')
+		}
 	}
 }

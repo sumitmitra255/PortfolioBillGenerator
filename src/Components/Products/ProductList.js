@@ -19,6 +19,7 @@ import { Selectsearch } from '../../selectsearch/Selectsearch'
 import { useState } from 'react'
 import '../../css/products.css'
 export const ProductList = (props) => {
+	const { toggle } = props
 	const dispatch = useDispatch()
 	const history = useHistory()
 	const [selectedproduct, setSelectedproduct] = useState()
@@ -33,11 +34,13 @@ export const ProductList = (props) => {
 	return (
 		<>
 			<div className='fixedElement'>
-				<Selectsearch
-					options={options}
-					setter={setSelectedproduct}
-					dispatcher={displayproduct}
-				/>
+				{(toggle) ? ('') : (
+					<Selectsearch
+						options={options}
+						setter={setSelectedproduct}
+						dispatcher={displayproduct}
+					/>
+				)}
 			</div>
 			<TableContainer component={Paper}>
 				<TableContainer aria-label='simple table'>
@@ -50,7 +53,7 @@ export const ProductList = (props) => {
 						</TableRow>
 					</TableHead>
 					<TableBody>
-						{productList.map((ele) => {
+						{/* {productList.map((ele) => {
 							return (
 								<>
 									<TableRow hover='true'>
@@ -58,7 +61,29 @@ export const ProductList = (props) => {
 									</TableRow>
 								</>
 							)
-						})}
+						})} */}
+						{toggle
+							? productList
+									.slice(-5)
+									.reverse()
+									.map((ele) => {
+										return (
+											<>
+												<TableRow hover='true'>
+													<DisplayProduct ProductEle={ele} />
+												</TableRow>
+											</>
+										)
+									})
+							: productList.reverse().map((ele) => {
+									return (
+										<>
+											<TableRow hover='true'>
+												<DisplayProduct ProductEle={ele} />
+											</TableRow>
+										</>
+									)
+							  })}
 					</TableBody>
 				</TableContainer>
 			</TableContainer>

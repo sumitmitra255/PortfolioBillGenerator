@@ -5,23 +5,28 @@ import { selectedCustomerActionGenerator } from '../../Actions/billsActions'
 import { Button } from '@material-ui/core'
 import { useStyles } from '../../css/materialuistyles'
 import '../../css/bill.css'
+import swal from 'sweetalert'
 export const SelectCustomer = (props) => {
 	const dispatch = useDispatch()
 	const classes = useStyles()
 	const date = new Date()
 	const date2 = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
 	const customerList = useSelector((state) => state.customerlist)
-	const [selectedCustomer, setSelectedCustomer] = useState({})
+	const [selectedCustomer, setSelectedCustomer] = useState()
 	const customerOptions = customerList.map((ele) => {
 		return { value: ele, label: `${ele.name}(${ele.email})` }
 	})
 	const handlecustomersave = (e) => {
 		e.preventDefault()
-		const customerdispatchobject = {
-			customer: selectedCustomer,
-			date: date2,
+		if (selectedCustomer) {
+			const customerdispatchobject = {
+				customer: selectedCustomer,
+				date: date2,
+			}
+			dispatch(selectedCustomerActionGenerator(customerdispatchobject))
+		} else {
+			swal('Please choose customer First', '', 'error')
 		}
-		dispatch(selectedCustomerActionGenerator(customerdispatchobject))
 	}
 	return (
 		<>

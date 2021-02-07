@@ -32,27 +32,31 @@ export const productListActionGenerator = (token) => {
 
 export const createProductActionGenerator = (productList, formData, token) => {
 	return (dispatch) => {
-		axios
-			.post('/products', formData, {
-				headers: { Authorization: `Bearer ${token}` },
-			})
-			.then((response) => {
-				if (response.data._id) {
-					const temp = [response.data]
-					const test = [...temp, ...productList]
-					dispatch(setproductListData(test))
-					swal('Whoa!', ` Your Product Add is Sucessful!`, 'success')
-				} else {
-					swal('Oops! Product Add Failed!', response.data.message, 'error')
-				}
-			})
-			.catch((err) => {
-				swal(
-					'Server is LOST. Please Try Again after Sometime!',
-					err.message,
-					'error'
-				)
-			}, [])
+		if (formData) {
+			axios
+				.post('/products', formData, {
+					headers: { Authorization: `Bearer ${token}` },
+				})
+				.then((response) => {
+					if (response.data._id) {
+						const temp = [response.data]
+						const test = [...temp, ...productList]
+						dispatch(setproductListData(test))
+						swal('Whoa!', ` Your Product Add is Sucessful!`, 'success')
+					} else {
+						swal('Oops! Product Add Failed!', response.data.message, 'error')
+					}
+				})
+				.catch((err) => {
+					swal(
+						'Server is LOST. Please Try Again after Sometime!',
+						err.message,
+						'error'
+					)
+				}, [])
+		} else {
+			swal('Please enter details first', '', 'error')
+		}
 	}
 }
 export const updateproductActionGenerator = (
@@ -63,29 +67,33 @@ export const updateproductActionGenerator = (
 	setEditToggle
 ) => {
 	return (dispatch) => {
-		axios
-			.put(`/products/${productEle._id}`, formdata, {
-				headers: { Authorization: `Bearer ${token}` },
-			})
-			.then((response) => {
-				if (response.data._id) {
-					const temp = response.data
-					const index = _.findIndex(productList, { _id: temp._id })
-					const updatedproductList = R.update(index, temp, productList)
-					dispatch(setproductListData(updatedproductList))
-					setEditToggle(false)
-					swal('Whoa!', `Dear  Your Product Update is Sucessful!`, 'success')
-				} else {
-					swal('Oops! Product Update Failed!', response.data.message, 'error')
-				}
-			})
-			.catch((err) => {
-				swal(
-					'Server is LOST. Please Try Again after Sometime!',
-					err.message,
-					'error'
-				)
-			}, [])
+		if (formdata) {
+			axios
+				.put(`/products/${productEle._id}`, formdata, {
+					headers: { Authorization: `Bearer ${token}` },
+				})
+				.then((response) => {
+					if (response.data._id) {
+						const temp = response.data
+						const index = _.findIndex(productList, { _id: temp._id })
+						const updatedproductList = R.update(index, temp, productList)
+						dispatch(setproductListData(updatedproductList))
+						setEditToggle(false)
+						swal('Whoa!', `Dear  Your Product Update is Sucessful!`, 'success')
+					} else {
+						swal('Oops! Product Update Failed!', response.data.message, 'error')
+					}
+				})
+				.catch((err) => {
+					swal(
+						'Server is LOST. Please Try Again after Sometime!',
+						err.message,
+						'error'
+					)
+				}, [])
+		} else {
+			swal('Please Enter details first', '', 'error')
+		}
 	}
 }
 
@@ -129,20 +137,24 @@ const setproductinfoData = (data) => {
 }
 export const userproductDetailsActionGenerator = (product, token, history) => {
 	return (dispatch) => {
-		axios
-			.get(`/products/${product._id}`, {
-				headers: { Authorization: `Bearer ${token}` },
-			})
-			.then((response) => {
-				dispatch(setproductinfoData(response.data))
-				history.push('/productinfo')
-			})
-			.catch((err) => {
-				swal(
-					'Server is LOST. Please Try Again after Sometime!',
-					err.message,
-					'error'
-				)
-			}, [])
+		if (product) {
+			axios
+				.get(`/products/${product._id}`, {
+					headers: { Authorization: `Bearer ${token}` },
+				})
+				.then((response) => {
+					dispatch(setproductinfoData(response.data))
+					history.push('/productinfo')
+				})
+				.catch((err) => {
+					swal(
+						'Server is LOST. Please Try Again after Sometime!',
+						err.message,
+						'error'
+					)
+				}, [])
+		} else {
+			swal('Please select a product first', '', 'error')
+		}
 	}
 }

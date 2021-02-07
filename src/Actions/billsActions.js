@@ -30,30 +30,38 @@ export const billsListActionGenerator = (token) => {
 }
 export const addBillActionGenerator = (token, formData, billsList, history) => {
 	return (dispatch) => {
-		axios
-			.post('/bills', formData, {
-				headers: { Authorization: `Bearer ${token}` },
-			})
-			.then((response) => {
-				if (response.data._id) {
-					billsList.push(response.data)
-					dispatch(setbillsListData(billsList))
-					dispatch(setbillsinfoData(response.data))
-					dispatch(setSelectedCustomer({}))
-					dispatch(setSelecteditemslist([]))
-					history.push('/billsinfo')
-					swal('Whoa!', `Your Bill Generation is Sucessful!`, 'success')
-				} else {
-					swal('Oops! Bill generation Failed!', response.data.message, 'error')
-				}
-			})
-			.catch((err) => {
-				swal(
-					'Server is LOST. Please Try Again after Sometime!',
-					err.message,
-					'error'
-				)
-			}, [])
+		if (formData) {
+			axios
+				.post('/bills', formData, {
+					headers: { Authorization: `Bearer ${token}` },
+				})
+				.then((response) => {
+					if (response.data._id) {
+						billsList.push(response.data)
+						dispatch(setbillsListData(billsList))
+						dispatch(setbillsinfoData(response.data))
+						dispatch(setSelectedCustomer({}))
+						dispatch(setSelecteditemslist([]))
+						history.push('/billsinfo')
+						swal('Whoa!', `Your Bill Generation is Sucessful!`, 'success')
+					} else {
+						swal(
+							'Oops! Bill generation Failed!',
+							response.data.message,
+							'error'
+						)
+					}
+				})
+				.catch((err) => {
+					swal(
+						'Server is LOST. Please Try Again after Sometime!',
+						err.message,
+						'error'
+					)
+				}, [])
+		} else {
+			swal('Cannot Add Information is empty', 'error')
+		}
 	}
 }
 
@@ -66,8 +74,12 @@ const setSelectedCustomer = (data) => {
 }
 export const selectedCustomerActionGenerator = (customerdispatchobject) => {
 	return (dispatch) => {
-		dispatch(setSelectedCustomer(customerdispatchobject))
-		swal('Whoa!', `Dear user  Customer Name Add is Sucessful!`, 'success')
+		if (customerdispatchobject) {
+			dispatch(setSelectedCustomer(customerdispatchobject))
+			swal('Whoa!', `Dear user  Customer Name Add is Sucessful!`, 'success')
+		} else {
+			swal('Please Enter customer First', '', 'error')
+		}
 	}
 }
 //selected items
@@ -82,8 +94,12 @@ export const selectedItemListrActionGenerator = (
 	stateProducts
 ) => {
 	return (dispatch) => {
-		stateProducts.push(lineitemsdispatchobject)
-		dispatch(setSelecteditemslist(stateProducts))
+		if (lineitemsdispatchobject) {
+			stateProducts.push(lineitemsdispatchobject)
+			dispatch(setSelecteditemslist(stateProducts))
+		} else {
+			swal('Please Enter Product details first', '', 'error')
+		}
 	}
 }
 export const deleteItemListActionGenerator = (deletedItem, stateProducts) => {
@@ -106,29 +122,33 @@ export const UpdatebillsActionGenerator = (
 	setEditToggle
 ) => {
 	return (dispatch) => {
-		axios
-			.put(`/bills/${billsEle._id}`, formdata, {
-				headers: { Authorization: `Bearer ${token}` },
-			})
-			.then((response) => {
-				if (response.data._id) {
-					const temp = response.data
-					const index = _.findIndex(billsList, { _id: temp._id })
-					const updatedbillsList = R.update(index, temp, billsList)
-					dispatch(setbillsListData(updatedbillsList))
-					setEditToggle(false)
-					swal('Whoa!', `Dear  Your Registration is Sucessful!`, 'success')
-				} else {
-					swal('Oops! Registrations Failed!', response.data.message, 'error')
-				}
-			})
-			.catch((err) => {
-				swal(
-					'Server is LOST. Please Try Again after Sometime!',
-					err.message,
-					'error'
-				)
-			}, [])
+		if (formdata) {
+			axios
+				.put(`/bills/${billsEle._id}`, formdata, {
+					headers: { Authorization: `Bearer ${token}` },
+				})
+				.then((response) => {
+					if (response.data._id) {
+						const temp = response.data
+						const index = _.findIndex(billsList, { _id: temp._id })
+						const updatedbillsList = R.update(index, temp, billsList)
+						dispatch(setbillsListData(updatedbillsList))
+						setEditToggle(false)
+						swal('Whoa!', `Dear  Your Registration is Sucessful!`, 'success')
+					} else {
+						swal('Oops! Registrations Failed!', response.data.message, 'error')
+					}
+				})
+				.catch((err) => {
+					swal(
+						'Server is LOST. Please Try Again after Sometime!',
+						err.message,
+						'error'
+					)
+				}, [])
+		} else {
+			swal('Please enter edit details', '', 'error')
+		}
 	}
 }
 
@@ -167,20 +187,24 @@ const setbillsinfoData = (data) => {
 }
 export const userbillsDetailsActionGenerator = (bills, token, history) => {
 	return (dispatch) => {
-		axios
-			.get(`/bills/${bills._id}`, {
-				headers: { Authorization: `Bearer ${token}` },
-			})
-			.then((response) => {
-				dispatch(setbillsinfoData(response.data))
-				history.push('/billsinfo')
-			})
-			.catch((err) => {
-				swal(
-					'Server is LOST. Please Try Again after Sometime!',
-					err.message,
-					'error'
-				)
-			}, [])
+		if (bills) {
+			axios
+				.get(`/bills/${bills._id}`, {
+					headers: { Authorization: `Bearer ${token}` },
+				})
+				.then((response) => {
+					dispatch(setbillsinfoData(response.data))
+					history.push('/billsinfo')
+				})
+				.catch((err) => {
+					swal(
+						'Server is LOST. Please Try Again after Sometime!',
+						err.message,
+						'error'
+					)
+				}, [])
+		} else {
+			swal('Please Choose a Bill FIrst', '', 'error')
+		}
 	}
 }

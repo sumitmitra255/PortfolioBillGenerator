@@ -9,6 +9,7 @@ import { useHistory } from 'react-router-dom'
 import { useState } from 'react'
 import { Button, TableCell } from '@material-ui/core'
 import { useStyles } from '../../css/materialuistyles'
+import DeleteIcon from '@material-ui/icons/Delete'
 
 export const Displaybills = (props) => {
 	const { billsEle } = props
@@ -39,7 +40,7 @@ export const Displaybills = (props) => {
 					}}
 					fullWidth
 					onClick={deletebills}>
-					Delete
+					<DeleteIcon />
 				</Button>
 			</TableCell>
 		</>
