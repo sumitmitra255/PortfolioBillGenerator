@@ -66,20 +66,16 @@ export const ProductList = (props) => {
 									.reverse()
 									.map((ele, i) => {
 										return (
-											<>
-												<TableRow hover={true} key={Date.now() + Math.random()}>
-													<DisplayProduct ProductEle={ele} />
-												</TableRow>
-											</>
+											<TableRow hover={true} key={Date.now() + Math.random()}>
+												<DisplayProduct ProductEle={ele} />
+											</TableRow>
 										)
 									})
 							: productList.reverse().map((ele) => {
 									return (
-										<>
-											<TableRow hover={true} key={Date.now() + Math.random()}>
-												<DisplayProduct ProductEle={ele} />
-											</TableRow>
-										</>
+										<TableRow hover={true} key={Date.now() + Math.random()}>
+											<DisplayProduct ProductEle={ele} />
+										</TableRow>
 									)
 							  })}
 					</TableBody>

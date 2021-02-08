@@ -42,7 +42,7 @@ export const CustomerList = (props) => {
 					/>
 				</div>
 			)}
-			<TableContainer component={Paper} classes={{ label: 'my-class-name' }}>
+			<TableContainer component={Paper}>
 				<Table aria-label='simple table'>
 					<TableHead key={Date.now() + Math.random()}>
 						<TableRow key={Date.now() + Math.random()}>
@@ -63,20 +63,16 @@ export const CustomerList = (props) => {
 									.reverse()
 									.map((ele, i) => {
 										return (
-											<>
-												<TableRow hover={true} key={Date.now() + Math.random()}>
-													<DisplayCustomer customerEle={ele} />
-												</TableRow>
-											</>
+											<TableRow hover={true} key={Date.now() + Math.random()}>
+												<DisplayCustomer customerEle={ele} />
+											</TableRow>
 										)
 									})
 							: customerList.reverse().map((ele, i) => {
 									return (
-										<>
-											<TableRow hover={true} key={Date.now() + Math.random()}>
-												<DisplayCustomer customerEle={ele} />
-											</TableRow>
-										</>
+										<TableRow hover={true} key={Date.now() + Math.random()}>
+											<DisplayCustomer customerEle={ele} />
+										</TableRow>
 									)
 							  })}
 					</TableBody>
