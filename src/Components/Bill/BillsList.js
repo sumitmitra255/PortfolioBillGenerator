@@ -15,12 +15,12 @@ import { useState } from 'react'
 import { Selectsearch } from '../../selectsearch/Selectsearch'
 import '../../css/bill.css'
 export const BillsList = (props) => {
+	const billsList = useSelector((state) => state.billlist)
 	const dispatch = useDispatch()
 	const history = useHistory()
 	const { toggle } = props
 	const [selectedBill, setSelectedBill] = useState()
 	const token = useSelector((state) => state.logintoken.token)
-	const billsList = useSelector((state) => state.billlist)
 	const options = billsList.map((ele) => {
 		return {
 			value: ele,
@@ -43,11 +43,11 @@ export const BillsList = (props) => {
 			)}
 			<TableContainer component={Paper}>
 				<Table aria-label='simple table'>
-					<TableHead key={Date.now() + Math.random()}>
-						<TableRow key={Date.now() + Math.random()}>
-							<TableCell key={Date.now() + Math.random()}>Bill Name</TableCell>
-							<TableCell key={Date.now() + Math.random()}>Created At</TableCell>
-							<TableCell key={Date.now() + Math.random()}>Delete</TableCell>
+					<TableHead>
+						<TableRow>
+							<TableCell>Bill Name</TableCell>
+							<TableCell>Created At</TableCell>
+							<TableCell>Delete</TableCell>
 						</TableRow>
 					</TableHead>
 					<TableBody>
@@ -57,14 +57,14 @@ export const BillsList = (props) => {
 									.reverse()
 									.map((ele, i) => {
 										return (
-											<TableRow hover={true} key={Date.now() + Math.random()}>
+											<TableRow hover={true} key={i}>
 												<Displaybills billsEle={ele} />
 											</TableRow>
 										)
 									})
 							: billsList.reverse().map((ele, i) => {
 									return (
-										<TableRow hover={true} key={Date.now() + Math.random()}>
+										<TableRow hover={true} key={i}>
 											<Displaybills billsEle={ele} />
 										</TableRow>
 									)

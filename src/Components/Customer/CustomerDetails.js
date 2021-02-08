@@ -29,60 +29,36 @@ export const CustomerDetails = (props) => {
 					</div>
 					<TableContainer component={Paper}>
 						<Table aria-label='simple table'>
-							<TableHead key={Date.now() + Math.random()}>
-								<TableRow key={Date.now() + Math.random()}></TableRow>
+							<TableHead>
+								<TableRow></TableRow>
 							</TableHead>
 							<TableBody>
-								<TableRow hover={true} key={Date.now() + Math.random()}>
-									<TableCell key={Date.now() + Math.random()}>
-										Customer Name
-									</TableCell>
-									<TableCell key={Date.now() + Math.random()}>
-										{' '}
-										{customerDetails.name}
-									</TableCell>
+								<TableRow hover={true}>
+									<TableCell>Customer Name</TableCell>
+									<TableCell> {customerDetails.name}</TableCell>
 								</TableRow>
-								<TableRow hover={true} key={Date.now() + Math.random()}>
-									<TableCell key={Date.now() + Math.random()}>
-										CreatedAt{' '}
-									</TableCell>
-									<TableCell key={Date.now() + Math.random()}>
-										{customerDetails.createdAt}
-									</TableCell>
+								<TableRow hover={true}>
+									<TableCell>CreatedAt </TableCell>
+									<TableCell>{customerDetails.createdAt}</TableCell>
 								</TableRow>
-								<TableRow hover={true} key={Date.now() + Math.random()}>
-									<TableCell key={Date.now() + Math.random()}>Email</TableCell>
-									<TableCell key={Date.now() + Math.random()}>
-										{' '}
-										{customerDetails.email}
-									</TableCell>
+								<TableRow hover={true}>
+									<TableCell>Email</TableCell>
+									<TableCell> {customerDetails.email}</TableCell>
 								</TableRow>
-								<TableRow hover={true} key={Date.now() + Math.random()}>
-									<TableCell key={Date.now() + Math.random()}>
-										UpdatedAt
-									</TableCell>
-									<TableCell key={Date.now() + Math.random()}>
-										{customerDetails.updatedAt}
-									</TableCell>
+								<TableRow hover={true}>
+									<TableCell>UpdatedAt</TableCell>
+									<TableCell>{customerDetails.updatedAt}</TableCell>
 								</TableRow>
-								<TableRow hover={true} key={Date.now() + Math.random()}>
-									<TableCell key={Date.now() + Math.random()}>
-										CreatedBy
-									</TableCell>
-									<TableCell key={Date.now() + Math.random()}>
-										{customerDetails.user}
-									</TableCell>
+								<TableRow hover={true}>
+									<TableCell>CreatedBy</TableCell>
+									<TableCell>{customerDetails.user}</TableCell>
 								</TableRow>
-								<TableRow hover={true} key={Date.now() + Math.random()}>
-									<TableCell key={Date.now() + Math.random()}>
-										Customer ID{' '}
-									</TableCell>
-									<TableCell key={Date.now() + Math.random()}>
-										{customerDetails._id}
-									</TableCell>
+								<TableRow hover={true}>
+									<TableCell>Customer ID </TableCell>
+									<TableCell>{customerDetails._id}</TableCell>
 								</TableRow>
-								<TableRow hover={true} key={Date.now() + Math.random()}>
-									<TableCell key={Date.now() + Math.random()}>
+								<TableRow hover={true}>
+									<TableCell>
 										<Button
 											classes={{
 												root: classes.button,

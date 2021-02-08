@@ -33,13 +33,7 @@ export const Customer = (props) => {
 					<div className='customerlist'>
 						<CustomerList />
 					</div>
-					{/* {toggle ? (
-						<div className='customercreate'>
-							<CreateCustomer />
-						</div>
-					) : (
-						''
-					)} */}
+				
 				</div>
 			</div>
 			<Drawer anchor='right' open={toggle} onClose={() => setToggle(!toggle)}>

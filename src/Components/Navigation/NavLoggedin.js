@@ -79,7 +79,7 @@ const LoggedInNavBar = (props) => {
 				onClick={() => {
 					history.push('/userinfo')
 				}}>
-				DashBoard
+				UserProfile
 			</Button>
 			<Button
 				classes={{

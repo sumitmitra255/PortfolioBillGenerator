@@ -15,12 +15,12 @@ import '../../css/customer.css'
 import { Selectsearch } from '../../selectsearch/Selectsearch'
 import { useState } from 'react'
 export const CustomerList = (props) => {
+	const customerList = useSelector((state) => state.customerlist)
 	const dispatch = useDispatch()
 	const history = useHistory()
 	const [selectedcust, setSelectedcust] = useState()
 	const { toggle } = props
 	const token = useSelector((state) => state.logintoken.token)
-	const customerList = useSelector((state) => state.customerlist)
 	const options = customerList.map((ele) => {
 		return { value: ele, label: `ID:${ele.name}-Email : ${ele.email})` }
 	})
@@ -42,16 +42,16 @@ export const CustomerList = (props) => {
 			)}
 			<TableContainer component={Paper}>
 				<Table aria-label='simple table'>
-					<TableHead key={Date.now() + Math.random()}>
-						<TableRow key={Date.now() + Math.random()}>
-							<TableCell key={Date.now() + Math.random()}>
+					<TableHead >
+						<TableRow >
+							<TableCell >
 								Customer Name
 							</TableCell>
-							<TableCell key={Date.now() + Math.random()}>
+							<TableCell >
 								Customer ID
 							</TableCell>
-							<TableCell key={Date.now() + Math.random()}>Edit</TableCell>
-							<TableCell key={Date.now() + Math.random()}>Delete</TableCell>
+							<TableCell >Edit</TableCell>
+							<TableCell >Delete</TableCell>
 						</TableRow>
 					</TableHead>
 					<TableBody>
@@ -61,14 +61,14 @@ export const CustomerList = (props) => {
 									.reverse()
 									.map((ele, i) => {
 										return (
-											<TableRow hover={true} key={Date.now() + Math.random()}>
+											<TableRow hover={true} key={i }>
 												<DisplayCustomer customerEle={ele} />
 											</TableRow>
 										)
 									})
 							: customerList.reverse().map((ele, i) => {
 									return (
-										<TableRow hover={true} key={Date.now() + Math.random()}>
+										<TableRow hover={true} key={i }>
 											<DisplayCustomer customerEle={ele} />
 										</TableRow>
 									)

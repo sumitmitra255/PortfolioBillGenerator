@@ -31,13 +31,6 @@ export const Product = (props) => {
 						<div className='productlist'>
 							<ProductList />
 						</div>
-						{/* {toggle ? (
-							<div className='create'>
-								<CreateProduct />
-							</div>
-						) : (
-							''
-						)} */}
 					</div>
 					<Drawer
 						anchor='right'

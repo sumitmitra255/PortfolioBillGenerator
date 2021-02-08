@@ -5,7 +5,7 @@ import '../css/userinfodetails.css'
 import React from 'react'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
-import TableCell  from '@material-ui/core/TableCell'
+import TableCell from '@material-ui/core/TableCell'
 import TableContainer from '@material-ui/core/TableContainer'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
@@ -33,59 +33,59 @@ export const UserInfoDetails = (props) => {
 					</Box>
 					<TableContainer component={Paper}>
 						<Table>
-							<TableHead key={Date.now() + Math.random()}>
-								<TableRow key={Date.now() + Math.random()}></TableRow>
+							<TableHead>
+								<TableRow></TableRow>
 							</TableHead>
 							<TableBody>
-								<TableRow hover={true} key={Date.now() + Math.random()}>
-									<TableCell key={Date.now() + Math.random()}>
+								<TableRow hover={true} >
+									<TableCell >
 										Address{' '}
 									</TableCell>
-									<TableCell key={Date.now() + Math.random()}>
+									<TableCell >
 										{userDetails.address}
 									</TableCell>
 								</TableRow>
-								<TableRow hover={true} key={Date.now() + Math.random()}>
-									<TableCell key={Date.now() + Math.random()}>
+								<TableRow hover={true} >
+									<TableCell >
 										BusinessName
 									</TableCell>
-									<TableCell key={Date.now() + Math.random()}>
+									<TableCell >
 										{userDetails.businessName}
 									</TableCell>
 								</TableRow>
-								<TableRow hover={true} key={Date.now() + Math.random()}>
-									<TableCell key={Date.now() + Math.random()}>
+								<TableRow hover={true} >
+									<TableCell >
 										CreatedAt
 									</TableCell>
-									<TableCell key={Date.now() + Math.random()}>
+									<TableCell >
 										{userDetails.createdAt}
 									</TableCell>
 								</TableRow>
-								<TableRow hover={true} key={Date.now() + Math.random()}>
-									<TableCell key={Date.now() + Math.random()}>Email</TableCell>
-									<TableCell key={Date.now() + Math.random()}>
+								<TableRow hover={true} >
+									<TableCell >Email</TableCell>
+									<TableCell >
 										{userDetails.email}
 									</TableCell>
 								</TableRow>
-								<TableRow hover={true} key={Date.now() + Math.random()}>
-									<TableCell key={Date.now() + Math.random()}>
+								<TableRow hover={true} >
+									<TableCell >
 										UpdatedAt
 									</TableCell>
-									<TableCell key={Date.now() + Math.random()}>
+									<TableCell >
 										{userDetails.updatedAt}
 									</TableCell>
 								</TableRow>
-								<TableRow hover={true} key={Date.now() + Math.random()}>
-									<TableCell key={Date.now() + Math.random()}>
+								<TableRow hover={true} >
+									<TableCell >
 										Username
 									</TableCell>
-									<TableCell key={Date.now() + Math.random()}>
+									<TableCell >
 										{userDetails.username}
 									</TableCell>
 								</TableRow>
-								<TableRow hover={true} key={Date.now() + Math.random()}>
-									<TableCell key={Date.now() + Math.random()}>ID</TableCell>
-									<TableCell key={Date.now() + Math.random()}>
+								<TableRow hover={true} >
+									<TableCell >ID</TableCell>
+									<TableCell >
 										{userDetails.username}
 									</TableCell>
 								</TableRow>

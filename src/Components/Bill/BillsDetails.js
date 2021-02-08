@@ -44,36 +44,36 @@ export const BillsDetails = (props) => {
 							</div>
 							<TableContainer component={Paper}>
 								<Table aria-label='simple table'>
-									<TableHead key={Date.now() + Math.random()}>
-										<TableRow key={Date.now() + Math.random()}></TableRow>
+									<TableHead>
+										<TableRow></TableRow>
 									</TableHead>
 									<TableBody>
-										<TableRow hover={true} key={Date.now() + Math.random()}>
-											<TableCell key={Date.now() + Math.random()}>Bill Total</TableCell>
-											<TableCell key={Date.now() + Math.random()}>Rs.{billsDetails.total}</TableCell>
+										<TableRow hover={true}>
+											<TableCell>Bill Total</TableCell>
+											<TableCell>Rs.{billsDetails.total}</TableCell>
 										</TableRow>
-										<TableRow hover={true} key={Date.now() + Math.random()}>
-											<TableCell key={Date.now() + Math.random()}>Bill Customer Id</TableCell>
-											<TableCell key={Date.now() + Math.random()}>{billsDetails.customer}</TableCell>
+										<TableRow hover={true}>
+											<TableCell>Bill Customer Id</TableCell>
+											<TableCell>{billsDetails.customer}</TableCell>
 										</TableRow>
-										<TableRow hover={true} key={Date.now() + Math.random()}>
-											<TableCell key={Date.now() + Math.random()}>Bill Createdby UserID</TableCell>
-											<TableCell key={Date.now() + Math.random()}>{billsDetails.user} </TableCell>
+										<TableRow hover={true}>
+											<TableCell>Bill Createdby UserID</TableCell>
+											<TableCell>{billsDetails.user} </TableCell>
 										</TableRow>
-										<TableRow hover={true} key={Date.now() + Math.random()}>
-											<TableCell key={Date.now() + Math.random()}>Bill ID</TableCell>
-											<TableCell key={Date.now() + Math.random()}>{billsDetails._id}</TableCell>
+										<TableRow hover={true}>
+											<TableCell>Bill ID</TableCell>
+											<TableCell>{billsDetails._id}</TableCell>
 										</TableRow>
-										<TableRow hover={true} key={Date.now() + Math.random()}>
-											<TableCell key={Date.now() + Math.random()}>Bill Date</TableCell>
-											<TableCell key={Date.now() + Math.random()}>{billsDetails.date}</TableCell>
+										<TableRow hover={true}>
+											<TableCell>Bill Date</TableCell>
+											<TableCell>{billsDetails.date}</TableCell>
 										</TableRow>
-										<TableRow hover={true} key={Date.now() + Math.random()}>
-											<TableCell key={Date.now() + Math.random()}>Bill Updated On</TableCell>
-											<TableCell key={Date.now() + Math.random()}>{billsDetails.updatedAt}</TableCell>
+										<TableRow hover={true}>
+											<TableCell>Bill Updated On</TableCell>
+											<TableCell>{billsDetails.updatedAt}</TableCell>
 										</TableRow>
 										<TableRow>
-											<TableCell key={Date.now() + Math.random()}>
+											<TableCell>
 												<Button
 													classes={{
 														root: classes.button,
@@ -82,7 +82,7 @@ export const BillsDetails = (props) => {
 													Go Back
 												</Button>
 											</TableCell>
-											<TableCell key={Date.now() + Math.random()}>
+											<TableCell>
 												<PDFDownloadLink
 													document={<MyDocument data={billsDetails} />}
 													fileName={`Bill_detailsno_${billsDetails._id}.pdf`}
@@ -107,22 +107,22 @@ export const BillsDetails = (props) => {
 							</div>
 							<TableContainer>
 								<Table aria-label='simple table'>
-									<TableHead key={Date.now() + Math.random()}>
-										<TableRow hover={true} key={Date.now() + Math.random()}>
-											<TableCell key={Date.now() + Math.random()}>Quantity</TableCell>
-											<TableCell key={Date.now() + Math.random()}>Price Per Unit</TableCell>
-											<TableCell key={Date.now() + Math.random()}>Product</TableCell>
-											<TableCell key={Date.now() + Math.random()}>Subtotal</TableCell>
+									<TableHead>
+										<TableRow hover={true}>
+											<TableCell>Quantity</TableCell>
+											<TableCell>Price Per Unit</TableCell>
+											<TableCell>Product</TableCell>
+											<TableCell>Subtotal</TableCell>
 										</TableRow>
 									</TableHead>
 									<TableBody>
-										{billsDetails.lineItems.map((ele) => {
+										{billsDetails.lineItems.map((ele, i) => {
 											return (
-												<TableRow hover={true} key={Date.now() + Math.random()}>
-													<TableCell key={Date.now() + Math.random()}>{ele.quantity}</TableCell>
-													<TableCell key={Date.now() + Math.random()}>{ele.price}</TableCell>
-													<TableCell key={Date.now() + Math.random()}>{ele.product}</TableCell>
-													<TableCell key={Date.now() + Math.random()}> Rs . {ele.subTotal}</TableCell>
+												<TableRow hover={true} key={i + Math.random()}>
+													<TableCell>{ele.quantity}</TableCell>
+													<TableCell>{ele.price}</TableCell>
+													<TableCell>{ele.product}</TableCell>
+													<TableCell> Rs . {ele.subTotal}</TableCell>
 												</TableRow>
 											)
 										})}

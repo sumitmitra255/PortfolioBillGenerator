@@ -15,12 +15,12 @@ import { Selectsearch } from '../../selectsearch/Selectsearch'
 import { useState } from 'react'
 import '../../css/products.css'
 export const ProductList = (props) => {
+	const productList = useSelector((state) => state.productlist)
 	const { toggle } = props
 	const dispatch = useDispatch()
 	const history = useHistory()
 	const [selectedproduct, setSelectedproduct] = useState()
 	const token = useSelector((state) => state.logintoken.token)
-	const productList = useSelector((state) => state.productlist)
 	const options = productList.map((ele) => {
 		return { value: ele, label: `Name:${ele.name}` }
 	})
@@ -42,16 +42,12 @@ export const ProductList = (props) => {
 			</div>
 			<TableContainer component={Paper}>
 				<Table aria-label='simple table'>
-					<TableHead key={Date.now() + Math.random()}>
-						<TableRow key={Date.now() + Math.random()}>
-							<TableCell key={Date.now() + Math.random()}>
-								Product Name
-							</TableCell>
-							<TableCell key={Date.now() + Math.random()}>
-								Price Per Unit
-							</TableCell>
-							<TableCell key={Date.now() + Math.random()}>Edit</TableCell>
-							<TableCell key={Date.now() + Math.random()}>Delete</TableCell>
+					<TableHead>
+						<TableRow>
+							<TableCell>Product Name</TableCell>
+							<TableCell>Price Per Unit</TableCell>
+							<TableCell>Edit</TableCell>
+							<TableCell>Delete</TableCell>
 						</TableRow>
 					</TableHead>
 					<TableBody>
@@ -61,14 +57,14 @@ export const ProductList = (props) => {
 									.reverse()
 									.map((ele, i) => {
 										return (
-											<TableRow hover={true} key={Date.now() + Math.random()}>
+											<TableRow hover={true} key={i}>
 												<DisplayProduct ProductEle={ele} />
 											</TableRow>
 										)
 									})
-							: productList.reverse().map((ele) => {
+							: productList.reverse().map((ele, i) => {
 									return (
-										<TableRow hover={true} key={Date.now() + Math.random()}>
+										<TableRow hover={true} key={i}>
 											<DisplayProduct ProductEle={ele} />
 										</TableRow>
 									)

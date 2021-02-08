@@ -29,9 +29,9 @@ export const Displaybills = (props) => {
 	}
 	return (
 		<>
-			<TableCell key={Date.now() + Math.random()} onClick={displaybills}>{billsEle._id}</TableCell>
-			<TableCell key={Date.now() + Math.random()} onClick={displaybills}>{billsEle.createdAt}</TableCell>
-			<TableCell key={Date.now() + Math.random()}>
+			<TableCell  onClick={displaybills}>{billsEle._id}</TableCell>
+			<TableCell  onClick={displaybills}>{billsEle.createdAt}</TableCell>
+			<TableCell >
 				<Button
 					classes={{
 						root: classes.button,

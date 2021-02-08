@@ -53,28 +53,26 @@ export const DisplayCart = (props) => {
 			<div className='cartlist'>
 				<TableContainer component={Paper}>
 					<Table aria-label='simple table'>
-						<TableHead key={Date.now() + Math.random()}>
-							<TableRow key={Date.now() + Math.random()}>
-								<TableCell key={Date.now() + Math.random()}>
+						<TableHead >
+							<TableRow >
+								<TableCell >
 									Product Name
 								</TableCell>
-								<TableCell key={Date.now() + Math.random()}>
+								<TableCell >
 									Price Per Unit
 								</TableCell>
-								<TableCell key={Date.now() + Math.random()}></TableCell>
+								<TableCell ></TableCell>
 							</TableRow>
 						</TableHead>
 						<TableBody>
 							{stateProducts.map((ele, i) => {
 								return (
-									<TableRow hover={true} key={Date.now() + Math.random()}>
-										<TableCell key={Date.now() + Math.random()}>
-											{ele.lineItems.name}
-										</TableCell>
-										<TableCell key={Date.now() + Math.random()}>
+									<TableRow hover={true} key={i + Math.random()}>
+										<TableCell>{ele.lineItems.name}</TableCell>
+										<TableCell >
 											Rs : {ele.lineItems.price}
 										</TableCell>
-										<TableCell key={Date.now() + Math.random()}>
+										<TableCell >
 											<Button
 												classes={{
 													root: classes.button,

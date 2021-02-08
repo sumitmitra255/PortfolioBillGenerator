@@ -18,16 +18,16 @@ export const Dashboard = (props) => {
 			<div className='progressbardiv'>
 				<Table>
 					<TableBody>
-						<TableRow key={Date.now() + Math.random()}>
-							<TableCell key={Date.now() + Math.random()} align='center'>
+						<TableRow >
+							<TableCell  align='center'>
 								<div className='dot'>
 									Total Customers :{customerslist.length}
 								</div>
 							</TableCell>
-							<TableCell key={Date.now() + Math.random()} align='center'>
+							<TableCell  align='center'>
 								<div className='dot'>Total Products:{productlist.length}</div>
 							</TableCell>
-							<TableCell key={Date.now() + Math.random()} align='center'>
+							<TableCell  align='center'>
 								<div className='dot'> Number of Bills {billlist.length}</div>
 							</TableCell>
 						</TableRow>
