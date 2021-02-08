@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom'
 import { Displaybills } from './Displaybills'
 import {
 	Paper,
+	Table,
 	TableBody,
 	TableCell,
 	TableContainer,
@@ -43,46 +44,39 @@ export const BillsList = (props) => {
 				/>
 			)}
 			<TableContainer component={Paper}>
-				<TableContainer aria-label='simple table'>
-					<TableHead>
-						<TableRow>
-							<TableCell>Bill Name</TableCell>
-							<TableCell>Created At</TableCell>
-							<TableCell>Delete</TableCell>
+				<Table aria-label='simple table'>
+					<TableHead key={Date.now() + Math.random()}>
+						<TableRow key={Date.now() + Math.random()}>
+							<TableCell key={Date.now() + Math.random()}>Bill Name</TableCell>
+							<TableCell key={Date.now() + Math.random()}>Created At</TableCell>
+							<TableCell key={Date.now() + Math.random()}>Delete</TableCell>
 						</TableRow>
 					</TableHead>
 					<TableBody>
-						{/* {billsList.map((ele) => {
-							return (
-								<TableRow hover='true'>
-									<Displaybills billsEle={ele} />
-								</TableRow>
-							)
-						})} */}
 						{toggle
 							? billsList
 									.slice(-5)
 									.reverse()
-									.map((ele) => {
+									.map((ele, i) => {
 										return (
 											<>
-												<TableRow hover='true'>
+												<TableRow hover={true} key={Date.now() + Math.random()}>
 													<Displaybills billsEle={ele} />
 												</TableRow>
 											</>
 										)
 									})
-							: billsList.reverse().map((ele) => {
+							: billsList.reverse().map((ele, i) => {
 									return (
 										<>
-											<TableRow hover='true'>
+											<TableRow hover={true} key={Date.now() + Math.random()}>
 												<Displaybills billsEle={ele} />
 											</TableRow>
 										</>
 									)
 							  })}
 					</TableBody>
-				</TableContainer>
+				</Table>
 			</TableContainer>
 		</>
 	)

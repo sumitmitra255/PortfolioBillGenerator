@@ -9,6 +9,7 @@ import { useHistory } from 'react-router-dom'
 import { DisplayProduct } from './DisplayProduct'
 import {
 	Paper,
+	Table,
 	TableBody,
 	TableCell,
 	TableContainer,
@@ -34,7 +35,9 @@ export const ProductList = (props) => {
 	return (
 		<>
 			<div className='fixedElement'>
-				{(toggle) ? ('') : (
+				{toggle ? (
+					''
+				) : (
 					<Selectsearch
 						options={options}
 						setter={setSelectedproduct}
@@ -43,33 +46,28 @@ export const ProductList = (props) => {
 				)}
 			</div>
 			<TableContainer component={Paper}>
-				<TableContainer aria-label='simple table'>
-					<TableHead>
-						<TableRow>
-							<TableCell>Product Name</TableCell>
-							<TableCell>Price Per Unit</TableCell>
-							<TableCell>Edit</TableCell>
-							<TableCell>Delete</TableCell>
+				<Table aria-label='simple table'>
+					<TableHead key={Date.now() + Math.random()}>
+						<TableRow key={Date.now() + Math.random()}>
+							<TableCell key={Date.now() + Math.random()}>
+								Product Name
+							</TableCell>
+							<TableCell key={Date.now() + Math.random()}>
+								Price Per Unit
+							</TableCell>
+							<TableCell key={Date.now() + Math.random()}>Edit</TableCell>
+							<TableCell key={Date.now() + Math.random()}>Delete</TableCell>
 						</TableRow>
 					</TableHead>
 					<TableBody>
-						{/* {productList.map((ele) => {
-							return (
-								<>
-									<TableRow hover='true'>
-										<DisplayProduct ProductEle={ele} />
-									</TableRow>
-								</>
-							)
-						})} */}
 						{toggle
 							? productList
 									.slice(-5)
 									.reverse()
-									.map((ele) => {
+									.map((ele, i) => {
 										return (
 											<>
-												<TableRow hover='true'>
+												<TableRow hover={true} key={Date.now() + Math.random()}>
 													<DisplayProduct ProductEle={ele} />
 												</TableRow>
 											</>
@@ -78,14 +76,14 @@ export const ProductList = (props) => {
 							: productList.reverse().map((ele) => {
 									return (
 										<>
-											<TableRow hover='true'>
+											<TableRow hover={true} key={Date.now() + Math.random()}>
 												<DisplayProduct ProductEle={ele} />
 											</TableRow>
 										</>
 									)
 							  })}
 					</TableBody>
-				</TableContainer>
+				</Table>
 			</TableContainer>
 		</>
 	)

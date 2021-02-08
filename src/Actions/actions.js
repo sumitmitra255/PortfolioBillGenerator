@@ -1,7 +1,7 @@
 import axios from '../AxiosConfig/axiosConfig.js'
 import swal from 'sweetalert'
-import * as R from 'ramda'
-import _ from 'lodash'
+// import * as R from 'ramda'
+// import _ from 'lodash'
 // login reducers //login token actions
 
 const setLoginData = (data) => {

@@ -18,8 +18,8 @@ export const Customer = (props) => {
 				<div className='customernavdiv'>
 					<LoggedInNavBar />
 				</div>
-				<div class='box-1'>
-					<div class='btn btn-one'>
+				<div className='box-1'>
+					<div className='btn btn-one'>
 						<span>Customer Resource List</span>
 					</div>
 				</div>

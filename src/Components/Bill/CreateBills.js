@@ -13,8 +13,8 @@ export const CreateBills = (props) => {
 			{toggle ? (
 				<>
 					<NavLoggedin />
-					<div class='box-1'>
-						<div class='btn btn-one'>
+					<div className='box-1'>
+						<div className='btn btn-one'>
 							<span>CreateBill</span>
 						</div>
 					</div>{' '}

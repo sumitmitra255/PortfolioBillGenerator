@@ -15,8 +15,8 @@ export const Bill = (props) => {
 		<>
 			<div className='billparentdiv'>
 				<LoggedInNavBar />
-				<div class='box-1'>
-					<div class='btn btn-one'>
+				<div className='box-1'>
+					<div className='btn btn-one'>
 						<span>Bill Resource List</span>
 					</div>
 				</div>

@@ -47,7 +47,7 @@ export const DisplayCustomer = (props) => {
 	return (
 		<>
 			{editToggle ? (
-				<TableCell>
+				<TableCell key={Date.now() + Math.random()}>
 					<CustomerForm
 						customerDetails={customerEle}
 						dispatcher={updateCustomerdispatcher}
@@ -55,12 +55,12 @@ export const DisplayCustomer = (props) => {
 				</TableCell>
 			) : (
 				<>
-					<TableCell onClick={displayCustomer}>{customerEle.name}</TableCell>
-					<TableCell onClick={displayCustomer}>{customerEle._id}</TableCell>
+					<TableCell key={Date.now() + Math.random()} onClick={displayCustomer}>{customerEle.name}</TableCell>
+					<TableCell key={Date.now() + Math.random()} onClick={displayCustomer}>{customerEle._id}</TableCell>
 				</>
 			)}
 			{editToggle ? (
-				<TableCell>
+				<TableCell key={Date.now() + Math.random()}>
 					<Button
 						classes={{
 							root: classes.button,
@@ -71,7 +71,7 @@ export const DisplayCustomer = (props) => {
 					</Button>
 				</TableCell>
 			) : (
-				<TableCell>
+				<TableCell key={Date.now() + Math.random()}>
 					<Button
 						classes={{
 							root: classes.button,
@@ -82,7 +82,7 @@ export const DisplayCustomer = (props) => {
 					</Button>
 				</TableCell>
 			)}
-			<TableCell>
+			<TableCell key={Date.now() + Math.random()}>
 				<Button
 					classes={{
 						root: classes.button,

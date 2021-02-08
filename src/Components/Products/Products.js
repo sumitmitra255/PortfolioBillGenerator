@@ -17,8 +17,8 @@ export const Product = (props) => {
 			<>
 				<div className='productparentdiv'>
 					<LoggedInNavBar />
-					<div class='box-1'>
-						<div class='btn btn-one'>
+					<div className='box-1'>
+						<div className='btn btn-one'>
 							<span>Product Resource </span>
 						</div>
 					</div>

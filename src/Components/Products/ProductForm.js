@@ -18,7 +18,7 @@ export const ProductForm = (props) => {
 
 	return (
 		<>
-			<div class='Login-container'>
+			<div className='Login-container'>
 				<>
 					<form onSubmit={formik.handleSubmit}>
 						<TextField

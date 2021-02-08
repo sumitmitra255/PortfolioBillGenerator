@@ -19,8 +19,8 @@ export const CreateCustomer = (props) => {
 	return (
 		<>
 			{toggle ? <NavLoggedin /> : ''}
-			<div class='box-1'>
-				<div class='btn btn-one'>Create a new Customer</div>
+			<div className='box-1'>
+				<div className='btn btn-one'>Create a new Customer</div>
 			</div>
 			<CustomerForm dispatcher={createDispatcher} />
 		</>

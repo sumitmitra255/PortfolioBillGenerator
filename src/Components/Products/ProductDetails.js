@@ -1,6 +1,7 @@
 import {
 	Button,
 	Paper,
+	Table,
 	TableBody,
 	TableCell,
 	TableContainer,
@@ -24,47 +25,75 @@ export const ProductDetails = (props) => {
 				<>
 					<div className='userdisplayparent'>
 						<LoggedInNavBar />
-						<div class='box-1'>
-							<div class='btn btn-one'>
+						<div className='box-1'>
+							<div className='btn btn-one'>
 								<span>Product Information</span>
 							</div>
 						</div>
 						<TableContainer component={Paper}>
-							<TableCell aria-label='simple table'>
-								<TableHead>
-									<TableRow></TableRow>
+							<Table aria-label='simple table'>
+								<TableHead key={Date.now() + Math.random()}>
+									<TableRow key={Date.now() + Math.random()}></TableRow>
 								</TableHead>
 								<TableBody>
-									<TableRow hover='true'>
-										<TableCell>Product Name</TableCell>
-										<TableCell>{productDetails.name} </TableCell>
+									<TableRow hover={true} key={Date.now() + Math.random()}>
+										<TableCell key={Date.now() + Math.random()}>
+											Product Name
+										</TableCell>
+										<TableCell key={Date.now() + Math.random()}>
+											{productDetails.name}{' '}
+										</TableCell>
 									</TableRow>
-									<TableRow hover='true'>
-										<TableCell>Product Price</TableCell>
-										<TableCell>{productDetails.price}</TableCell>
+									<TableRow hover={true} key={Date.now() + Math.random()}>
+										<TableCell key={Date.now() + Math.random()}>
+											Product Price
+										</TableCell>
+										<TableCell key={Date.now() + Math.random()}>
+											{productDetails.price}
+										</TableCell>
 									</TableRow>
-									<TableRow hover='true'>
-										<TableCell>Product ID</TableCell>
-										<TableCell>{productDetails._id} </TableCell>
+									<TableRow hover={true} key={Date.now() + Math.random()}>
+										<TableCell key={Date.now() + Math.random()}>
+											Product ID
+										</TableCell>
+										<TableCell key={Date.now() + Math.random()}>
+											{productDetails._id}{' '}
+										</TableCell>
 									</TableRow>
-									<TableRow hover='true'>
-										<TableCell>Product Createdby</TableCell>
-										<TableCell>{productDetails.user}</TableCell>
+									<TableRow hover={true} key={Date.now() + Math.random()}>
+										<TableCell key={Date.now() + Math.random()}>
+											Product Createdby
+										</TableCell>
+										<TableCell key={Date.now() + Math.random()}>
+											{productDetails.user}
+										</TableCell>
 									</TableRow>
-									<TableRow hover='true'>
-										<TableCell>Product Created on</TableCell>
-										<TableCell>{productDetails.createdAt}</TableCell>
+									<TableRow hover={true} key={Date.now() + Math.random()}>
+										<TableCell key={Date.now() + Math.random()}>
+											Product Created on
+										</TableCell>
+										<TableCell key={Date.now() + Math.random()}>
+											{productDetails.createdAt}
+										</TableCell>
 									</TableRow>
-									<TableRow hover='true'>
-										<TableCell>Product Last Update on </TableCell>
-										<TableCell>{productDetails.updatedAt}</TableCell>
+									<TableRow hover={true} key={Date.now() + Math.random()}>
+										<TableCell key={Date.now() + Math.random()}>
+											Product Last Update on{' '}
+										</TableCell>
+										<TableCell key={Date.now() + Math.random()}>
+											{productDetails.updatedAt}
+										</TableCell>
 									</TableRow>
-									<TableRow hover='true'>
-										<TableCell>Product Price </TableCell>
-										<TableCell>Rs . {productDetails.price}</TableCell>
+									<TableRow hover={true} key={Date.now() + Math.random()}>
+										<TableCell key={Date.now() + Math.random()}>
+											Product Price{' '}
+										</TableCell>
+										<TableCell key={Date.now() + Math.random()}>
+											Rs . {productDetails.price}
+										</TableCell>
 									</TableRow>
-									<TableRow>
-										<TableCell>
+									<TableRow key={Date.now() + Math.random()}>
+										<TableCell key={Date.now() + Math.random()}>
 											<Button
 												classes={{
 													root: classes.button,
@@ -75,7 +104,7 @@ export const ProductDetails = (props) => {
 										</TableCell>
 									</TableRow>
 								</TableBody>
-							</TableCell>
+							</Table>
 						</TableContainer>
 						<br />
 					</div>

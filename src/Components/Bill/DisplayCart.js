@@ -1,6 +1,7 @@
 import {
 	Button,
 	Paper,
+	Table,
 	TableBody,
 	TableCell,
 	TableContainer,
@@ -51,21 +52,29 @@ export const DisplayCart = (props) => {
 			</Button>
 			<div className='cartlist'>
 				<TableContainer component={Paper}>
-					<TableContainer aria-label='simple table'>
-						<TableHead>
-							<TableRow>
-								<TableCell>Product Name</TableCell>
-								<TableCell>Price Per Unit</TableCell>
-								<TableCell></TableCell>
+					<Table aria-label='simple table'>
+						<TableHead key={Date.now() + Math.random()}>
+							<TableRow key={Date.now() + Math.random()}>
+								<TableCell key={Date.now() + Math.random()}>
+									Product Name
+								</TableCell>
+								<TableCell key={Date.now() + Math.random()}>
+									Price Per Unit
+								</TableCell>
+								<TableCell key={Date.now() + Math.random()}></TableCell>
 							</TableRow>
 						</TableHead>
 						<TableBody>
-							{stateProducts.map((ele) => {
+							{stateProducts.map((ele, i) => {
 								return (
-									<TableRow hover='true'>
-										<TableCell>{ele.lineItems.name}</TableCell>
-										<TableCell>Rs : {ele.lineItems.price}</TableCell>
-										<TableCell>
+									<TableRow hover={true} key={Date.now() + Math.random()}>
+										<TableCell key={Date.now() + Math.random()}>
+											{ele.lineItems.name}
+										</TableCell>
+										<TableCell key={Date.now() + Math.random()}>
+											Rs : {ele.lineItems.price}
+										</TableCell>
+										<TableCell key={Date.now() + Math.random()}>
 											<Button
 												classes={{
 													root: classes.button,
@@ -79,7 +88,7 @@ export const DisplayCart = (props) => {
 								)
 							})}
 						</TableBody>
-					</TableContainer>
+					</Table>
 				</TableContainer>
 			</div>
 		</>

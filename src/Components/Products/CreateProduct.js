@@ -17,8 +17,8 @@ export const CreateProduct = (props) => {
 	return (
 		<>
 			{toggle ? <NavLoggedin /> : ''}
-			<div class='box-1'>
-				<div class='btn btn-one'>Create a new Product</div>
+			<div className='box-1'>
+				<div className='btn btn-one'>Create a new Product</div>
 			</div>
 			<ProductForm dispatcher={createDispatcher} />
 		</>

@@ -26,9 +26,9 @@ export const Register = (props) => {
 
 	return (
 		<>
-			<div class='registerroot'>
-				<div class='box-1'>
-					<div class='btn btn-one'>
+			<div className='registerroot'>
+				<div className='box-1'>
+					<div className='btn btn-one'>
 						<span>REGISTER </span>
 					</div>
 				</div>

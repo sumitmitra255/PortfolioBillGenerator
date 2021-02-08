@@ -47,7 +47,7 @@ export const DisplayProduct = (props) => {
 	return (
 		<>
 			{editToggle ? (
-				<TableCell>
+				<TableCell key={Date.now() + Math.random()}>
 					<ProductForm
 						productsDetails={ProductEle}
 						dispatcher={updateProductsdispatcher}
@@ -55,12 +55,12 @@ export const DisplayProduct = (props) => {
 				</TableCell>
 			) : (
 				<>
-					<TableCell onClick={displayProducts}>{ProductEle.name}</TableCell>
-					<TableCell onClick={displayProducts}>{ProductEle.price}</TableCell>
+					<TableCell key={Date.now() + Math.random()} onClick={displayProducts}>{ProductEle.name}</TableCell>
+					<TableCell key={Date.now() + Math.random()} onClick={displayProducts}>{ProductEle.price}</TableCell>
 				</>
 			)}
 			{editToggle ? (
-				<TableCell>
+				<TableCell key={Date.now() + Math.random()}>
 					<Button
 						classes={{
 							root: classes.button,
@@ -71,7 +71,7 @@ export const DisplayProduct = (props) => {
 					</Button>
 				</TableCell>
 			) : (
-				<TableCell>
+				<TableCell key={Date.now() + Math.random()}>
 					<Button
 						classes={{
 							root: classes.button,
@@ -82,7 +82,7 @@ export const DisplayProduct = (props) => {
 					</Button>
 				</TableCell>
 			)}
-			<TableCell>
+			<TableCell key={Date.now() + Math.random()}>
 				<Button
 					classes={{
 						root: classes.button,
