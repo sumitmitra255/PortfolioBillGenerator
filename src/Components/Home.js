@@ -17,11 +17,11 @@ export const Home = (props) => {
 	const dispatch = useDispatch()
 	const token = useSelector((state) => state.logintoken.token)
 	const tokenst = useSelector((state) => state)
-	// useEffect(() => {
-	// 	dispatch(customerListActionGenerator(token))
-	// 	dispatch(productListActionGenerator(token))
-	// 	dispatch(billsListActionGenerator(token))
-	// }, [token])
+	useEffect(() => {
+		dispatch(customerListActionGenerator(token))
+		dispatch(productListActionGenerator(token))
+		dispatch(billsListActionGenerator(token))
+	}, [token])
 	return (
 		<>
 			<LoggedInNavBar />
