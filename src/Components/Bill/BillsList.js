@@ -59,20 +59,16 @@ export const BillsList = (props) => {
 									.reverse()
 									.map((ele, i) => {
 										return (
-											<>
-												<TableRow hover={true} key={Date.now() + Math.random()}>
-													<Displaybills billsEle={ele} />
-												</TableRow>
-											</>
+											<TableRow hover={true} key={Date.now() + Math.random()}>
+												<Displaybills billsEle={ele} />
+											</TableRow>
 										)
 									})
 							: billsList.reverse().map((ele, i) => {
 									return (
-										<>
-											<TableRow hover={true} key={Date.now() + Math.random()}>
-												<Displaybills billsEle={ele} />
-											</TableRow>
-										</>
+										<TableRow hover={true} key={Date.now() + Math.random()}>
+											<Displaybills billsEle={ele} />
+										</TableRow>
 									)
 							  })}
 					</TableBody>
