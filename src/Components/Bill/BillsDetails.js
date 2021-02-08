@@ -8,7 +8,7 @@ import {
 	TableHead,
 	TableRow,
 } from '@material-ui/core'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import '../../css/userinfodetails.css'
 import LoggedInNavBar from '../Navigation/NavLoggedin'
@@ -17,9 +17,7 @@ import { MyDocument } from './Pdfocument.js'
 import { PDFDownloadLink } from '@react-pdf/renderer'
 
 export const BillsDetails = (props) => {
-	const dispatch = useDispatch()
 	const billsDetails = useSelector((state) => state.billsdetails)
-	const token = useSelector((state) => state.logintoken.token)
 	let history = useHistory()
 	const classes = useStyles()
 

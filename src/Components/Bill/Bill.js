@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from 'react-redux'
+
 import { BillsList } from './BillsList'
 import { CreateBills } from './CreateBills'
 import LoggedInNavBar from '../Navigation/NavLoggedin'
@@ -7,8 +7,6 @@ import { Button, Drawer } from '@material-ui/core'
 import { useState } from 'react'
 import { useStyles } from '../../css/materialuistyles'
 export const Bill = (props) => {
-	const dispatch = useDispatch()
-	const token = useSelector((state) => state.logintoken.token)
 	const [toggle, setToggle] = useState(false)
 	const classes = useStyles()
 	return (
@@ -35,7 +33,7 @@ export const Bill = (props) => {
 				</div>
 				<Drawer anchor='right' open={toggle} onClose={() => setToggle(!toggle)}>
 					<div className='billcreate'>
-						<CreateBills />
+						<CreateBills toggle={false} />
 					</div>
 				</Drawer>
 			</div>

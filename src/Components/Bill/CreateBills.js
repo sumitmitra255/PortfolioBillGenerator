@@ -1,12 +1,10 @@
-import { useSelector } from 'react-redux'
-import { useEffect } from 'react'
+
 import { ItemCart } from './ItemCart'
 import { SelectCustomer } from './SelectCustomer'
 import { DisplayCart } from './DisplayCart'
 import '../../css/bill.css'
 import NavLoggedin from '../Navigation/NavLoggedin'
 export const CreateBills = (props) => {
-	const token = useSelector((state) => state)
 	const { toggle } = props
 	return (
 		<>

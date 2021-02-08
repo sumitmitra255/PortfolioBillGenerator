@@ -12,7 +12,6 @@ export const ItemCart = (props) => {
 	const stateProducts = useSelector((state) => state.selecteditems)
 	const [selectedProduct, setSelectedProduct] = useState()
 	const [quantity, setQuantity] = useState(0)
-	const token = useSelector((state) => state.logintoken.token)
 	const productList = useSelector((state) => state.productlist)
 	const productOptions = productList.map((ele) => {
 		return { value: ele, label: `${ele.name}(price per unit Rs. ${ele.price})` }

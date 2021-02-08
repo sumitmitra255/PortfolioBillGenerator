@@ -1,30 +1,22 @@
 import '../css/App.css'
 import { Register } from './Register'
-import {
-	BrowserRouter as Router,
-	Route,
-	Redirect,
-	useHistory,
-} from 'react-router-dom'
+import { BrowserRouter as Router, Route, useHistory } from 'react-router-dom'
 import { Login } from './Login'
 import { loginTokenGenerator } from '../Actions/actions'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Home } from './Home'
 import { CustomerDetails } from './Customer/CustomerDetails.js'
 import { Customer } from './Customer/Customer.js'
 import { Product } from './Products/Products'
 import { ProductDetails } from './Products/ProductDetails.js'
 import { Bill } from './Bill/Bill'
-import { useEffect } from 'react'
-import { customerListActionGenerator } from '../Actions/customerActions'
-import { productListActionGenerator } from '../Actions/productActions'
-import { billsListActionGenerator } from '../Actions/billsActions'
 import { BillsDetails } from './Bill/BillsDetails.js'
 import { useState } from 'react'
 import { CreateBills } from './Bill/CreateBills'
 import { CreateCustomer } from './Customer/CreateCustomer'
 import { CreateProduct } from './Products/CreateProduct'
 import { UserInfoDetails } from './UserInfoDetails'
+import { Dashboard } from './Dashboard'
 function App() {
 	const dispatch = useDispatch()
 	let history = useHistory()
@@ -40,7 +32,6 @@ function App() {
 
 	return (
 		<>
-			{/* <ParticlesBg type='cobweb' bg={true} /> */}
 			<Router>
 				<Route exact path='/home' render={(props) => <Home />} />
 				<Route exact path='/register' render={(props) => <Register />} />
@@ -80,6 +71,11 @@ function App() {
 					exact
 					path='/userinfo'
 					render={(props) => <UserInfoDetails toggle={true} />}
+				/>
+				<Route
+					exact
+					path='/dashboard'
+					render={(props) => <Dashboard toggle={true} />}
 				/>
 			</Router>
 		</>

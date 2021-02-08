@@ -1,10 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux'
-import {
-	productListActionGenerator,
-	userproductDetailsActionGenerator,
-} from '../../Actions/productActions'
-import { useEffect } from 'react'
-import { userProductDetailsActionGenerator } from '../../Actions/productActions'
+import { userproductDetailsActionGenerator } from '../../Actions/productActions'
 import { useHistory } from 'react-router-dom'
 import { DisplayProduct } from './DisplayProduct'
 import {

@@ -1,5 +1,4 @@
 import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer'
-import { PDFViewer } from '@react-pdf/renderer'
 export const MyDocument = (props) => {
 	const { data } = props
 	const styles = StyleSheet.create({

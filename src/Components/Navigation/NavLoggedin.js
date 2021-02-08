@@ -79,7 +79,16 @@ const LoggedInNavBar = (props) => {
 				onClick={() => {
 					history.push('/userinfo')
 				}}>
-				UserProfile
+				DashBoard
+			</Button>
+			<Button
+				classes={{
+					root: classes.button,
+				}}
+				onClick={() => {
+					history.push('/dashboard')
+				}}>
+				DashBoard
 			</Button>
 			<Button
 				classes={{

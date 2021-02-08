@@ -38,11 +38,10 @@ export const loginActionGenerator = (formData, history) => {
 		}
 	}
 }
-export const loginTokenGenerator = (token, history) => {
+export const loginTokenGenerator = (token) => {
 	if (token) {
 		return (dispatch) => {
 			dispatch(setLoginData({ token: token }))
-			// history.push('/home')
 		}
 	} else {
 		swal('Login Token Not Found! Please Login', '', 'error')

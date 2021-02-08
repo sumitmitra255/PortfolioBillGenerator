@@ -1,7 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 import {
 	userbillsDetailsActionGenerator,
-	UpdatebillsActionGenerator,
 	deletebillsActionGenerator,
 } from '../../Actions/billsActions'
 
@@ -19,7 +18,6 @@ export const Displaybills = (props) => {
 	const classes = useStyles()
 	const token = useSelector((state) => state.logintoken.token)
 	const billsList = useSelector((state) => state.billlist)
-	const stu = useSelector((state) => state)
 	const displaybills = () => {
 		dispatch(userbillsDetailsActionGenerator(billsEle, token, history))
 	}

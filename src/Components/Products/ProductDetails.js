@@ -8,15 +8,13 @@ import {
 	TableHead,
 	TableRow,
 } from '@material-ui/core'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector} from 'react-redux'
 import LoggedInNavBar from '../Navigation/NavLoggedin'
 import '../../css/userinfodetails.css'
 import { useHistory } from 'react-router-dom'
 import { useStyles } from '../../css/materialuistyles'
 export const ProductDetails = (props) => {
-	const dispatch = useDispatch()
 	const productDetails = useSelector((state) => state.productdetails)
-	const token = useSelector((state) => state.logintoken.token)
 	let history = useHistory()
 	const classes = useStyles()
 	return (

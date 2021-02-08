@@ -1,16 +1,14 @@
-import { useSelector, useDispatch } from 'react-redux'
+
 import { CustomerList } from './CustomerList'
 import { CreateCustomer } from './CreateCustomer'
 import LoggedInNavBar from '../Navigation/NavLoggedin'
 import '../../css/customer.css'
 import { useState } from 'react'
-import { Button, Drawer, Fab } from '@material-ui/core'
+import { Button, Drawer} from '@material-ui/core'
 import { useStyles } from '../../css/materialuistyles'
 export const Customer = (props) => {
-	const dispatch = useDispatch()
 	const classes = useStyles()
 	const [toggle, setToggle] = useState(false)
-	const token = useSelector((state) => state.logintoken.token)
 
 	return (
 		<>
@@ -46,7 +44,7 @@ export const Customer = (props) => {
 			</div>
 			<Drawer anchor='right' open={toggle} onClose={() => setToggle(!toggle)}>
 				<div className='customercreate'>
-					<CreateCustomer />
+					<CreateCustomer toggle={false}/>
 				</div>
 			</Drawer>
 		</>

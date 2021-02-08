@@ -1,6 +1,4 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { customerListActionGenerator } from '../../Actions/customerActions'
-import { useEffect } from 'react'
 import { userCustomerDetailsActionGenerator } from '../../Actions/customerActions'
 import { useHistory } from 'react-router-dom'
 import { DisplayCustomer } from './DisplayCustomer'

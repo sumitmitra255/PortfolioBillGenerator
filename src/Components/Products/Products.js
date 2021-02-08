@@ -1,4 +1,3 @@
-import { useSelector, useDispatch } from 'react-redux'
 import { ProductList } from './ProductList'
 import { CreateProduct } from './CreateProduct'
 import LoggedInNavBar from '../Navigation/NavLoggedin'
@@ -7,9 +6,7 @@ import { useStyles } from '../../css/materialuistyles'
 import { useState } from 'react'
 import { Button, Drawer } from '@material-ui/core'
 export const Product = (props) => {
-	const dispatch = useDispatch()
 	const [toggle, setToggle] = useState(false)
-	const token = useSelector((state) => state.logintoken.token)
 	const classes = useStyles()
 
 	return (
@@ -47,7 +44,7 @@ export const Product = (props) => {
 						open={toggle}
 						onClose={() => setToggle(!toggle)}>
 						<div className='productcreate'>
-							<CreateProduct />
+							<CreateProduct toggle={false} />
 						</div>
 					</Drawer>
 				</div>

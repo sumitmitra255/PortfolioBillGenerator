@@ -1,5 +1,4 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { useHistory } from 'react-router-dom'
 import { createProductActionGenerator } from '../../Actions/productActions'
 import { ProductForm } from './ProductForm'
 import '../../css/products.css'
@@ -9,7 +8,6 @@ export const CreateProduct = (props) => {
 	const token = useSelector((state) => state.logintoken.token)
 	const productList = useSelector((state) => state.productlist)
 	const dispatch = useDispatch()
-	let history = useHistory()
 	const createDispatcher = (values) => {
 		dispatch(createProductActionGenerator(productList, values, token))
 	}

@@ -1,6 +1,4 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { billsListActionGenerator } from '../../Actions/billsActions'
-import { useEffect } from 'react'
 import { userbillsDetailsActionGenerator } from '../../Actions/billsActions'
 import { useHistory } from 'react-router-dom'
 import { Displaybills } from './Displaybills'

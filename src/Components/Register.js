@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux'
 import { useFormik } from 'formik'
 import { Button, TextField } from '@material-ui/core'
-import { BrowserRouter as Router, Route, useHistory } from 'react-router-dom'
+import { BrowserRouter as useHistory } from 'react-router-dom'
 import { registerValidationSchema } from '../Schema/registerValidationSchema'
 import { registerActionGenerator } from '../Actions/actions'
 import '../css/register.css'
