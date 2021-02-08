@@ -27,7 +27,7 @@ export const Home = (props) => {
 		<>
 			<LoggedInNavBar />
 			<Dashboard />
-			{/* <Charts />.. */}
+			{/* <Charts />.. again pushed*/}
 		</>
 	)
 }
