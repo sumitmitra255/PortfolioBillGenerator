@@ -1,3 +1,5 @@
+live demo :-  https://billingapp-sumit.herokuapp.com/
+
 # PortfolioBillGenerator
 Portfolio project - Bill Generator
 **Add new customers and edit them on the go.
@@ -16,6 +18,9 @@ Portfolio project - Bill Generator
 #React-Select
 #React-Pdf
 #CanvasJs
+#axios
+#lodash
+#ramda
 
 Future implimentation include graphs from canvas js and making the CustomerList, BillList and Product List Reusable into dashboad.
 It has been implemented Using reactjs, react-redux, react-hooks, material-ui, formik,yup,validator,uuid, react-router and Redux.
