@@ -1,8 +1,9 @@
-import { useSelector } from 'react-redux';
-import { CanvasJSChart } from './Home';
-
+import { useSelector } from 'react-redux'
+import { CanvasJSChart } from './Home'
+import CanvasJSReact from '..//assets/canvasjs.react'
+export var CanvasJSChart = CanvasJSReact.CanvasJSChart
 export const Charts = (props) => {
-	const nocustomers = useSelector((state) => state.customerlist);
+	const nocustomers = useSelector((state) => state.customerlist)
 	const options = {
 		backgroundColor: '#4caf50',
 		animationEnabled: true,
@@ -35,12 +36,11 @@ export const Charts = (props) => {
 				dataPoints: [{ name: 'No Of Customers', y: nocustomers.length }],
 			},
 		],
-	};
+	}
 
 	return (
 		<>
-			<CanvasJSChart
-				options={options} />
+			<CanvasJSChart options={options} />
 		</>
-	);
-};
+	)
+}

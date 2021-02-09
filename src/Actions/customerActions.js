@@ -19,6 +19,7 @@ export const customerListActionGenerator = (token) => {
 			})
 			.then((response) => {
 				dispatch(setcustomerListData(response.data))
+				localStorage.setItem('customerlist', JSON.stringify(response.data))
 			})
 			.catch((err) => {
 				swal(
@@ -29,7 +30,13 @@ export const customerListActionGenerator = (token) => {
 			}, [])
 	}
 }
-
+export const setCustomersListLocalStorage = (token, customerlist) => {
+	return (dispatch) => {
+		if (token) {
+			dispatch(setcustomerListData(customerlist))
+		}
+	}
+}
 export const createCustomerActionGenerator = (
 	customerList,
 	formData,
@@ -46,6 +53,7 @@ export const createCustomerActionGenerator = (
 						const temp = [response.data]
 						const test = [...temp, ...customerList]
 						dispatch(setcustomerListData(test))
+						localStorage.setItem('customerlist', JSON.stringify(test))
 						swal('Whoa!', `Customer Add Sucessful!`, 'success')
 					} else {
 						swal('Oops! Customer Add Failed!', response.data.message, 'error')
@@ -82,6 +90,10 @@ export const UpdateCustomerActionGenerator = (
 						const index = _.findIndex(customerList, { _id: temp._id })
 						const updatedCustomerList = R.update(index, temp, customerList)
 						dispatch(setcustomerListData(updatedCustomerList))
+						localStorage.setItem(
+							'customerlist',
+							JSON.stringify(updatedCustomerList)
+						)
 						setEditToggle(false)
 						swal('Whoa!', `Dear  Customer Update is Sucessful!`, 'success')
 					} else {
@@ -121,6 +133,10 @@ export const deleteCustomerActionGenerator = (
 					const index = _.findIndex(customerList, { _id: temp._id })
 					const updatedCustomerList = R.remove(index, 1, customerList)
 					dispatch(setcustomerListData(updatedCustomerList))
+					localStorage.setItem(
+						'customerlist',
+						JSON.stringify(updatedCustomerList)
+					)
 					swal('Whoa!', `Dear  Your Registration is Sucessful!`, 'success')
 				} else {
 					swal('Oops! Registrations Failed!', response.data.message, 'error')
@@ -155,7 +171,7 @@ export const userCustomerDetailsActionGenerator = (
 				})
 				.then((response) => {
 					dispatch(setCustomerinfoData(response.data))
-					history.push('/customerinfo')
+					history.push(`/customerinfo/${customer._id}`)
 				})
 				.catch((err) => {
 					swal(

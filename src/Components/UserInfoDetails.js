@@ -15,15 +15,14 @@ import { Box } from '@material-ui/core'
 export const UserInfoDetails = (props) => {
 	const dispatch = useDispatch()
 	const token = useSelector((state) => state.logintoken.token)
+	const userDetails = useSelector((state) => state.userinfo)
 	useEffect(() => {
 		dispatch(userInfoActionGenerator(token))
 	}, [])
-	const userDetails = useSelector((state) => state.userinfo)
 	return (
 		<Box>
 			{userDetails ? (
 				<>
-					<LoggedInNavBar />
 					<Box>
 						<div className='box-1'>
 							<div className='btn btn-one'>
@@ -37,57 +36,33 @@ export const UserInfoDetails = (props) => {
 								<TableRow></TableRow>
 							</TableHead>
 							<TableBody>
-								<TableRow hover={true} >
-									<TableCell >
-										Address{' '}
-									</TableCell>
-									<TableCell >
-										{userDetails.address}
-									</TableCell>
+								<TableRow hover={true}>
+									<TableCell>Address </TableCell>
+									<TableCell>{userDetails.address}</TableCell>
 								</TableRow>
-								<TableRow hover={true} >
-									<TableCell >
-										BusinessName
-									</TableCell>
-									<TableCell >
-										{userDetails.businessName}
-									</TableCell>
+								<TableRow hover={true}>
+									<TableCell>BusinessName</TableCell>
+									<TableCell>{userDetails.businessName}</TableCell>
 								</TableRow>
-								<TableRow hover={true} >
-									<TableCell >
-										CreatedAt
-									</TableCell>
-									<TableCell >
-										{userDetails.createdAt}
-									</TableCell>
+								<TableRow hover={true}>
+									<TableCell>CreatedAt</TableCell>
+									<TableCell>{userDetails.createdAt}</TableCell>
 								</TableRow>
-								<TableRow hover={true} >
-									<TableCell >Email</TableCell>
-									<TableCell >
-										{userDetails.email}
-									</TableCell>
+								<TableRow hover={true}>
+									<TableCell>Email</TableCell>
+									<TableCell>{userDetails.email}</TableCell>
 								</TableRow>
-								<TableRow hover={true} >
-									<TableCell >
-										UpdatedAt
-									</TableCell>
-									<TableCell >
-										{userDetails.updatedAt}
-									</TableCell>
+								<TableRow hover={true}>
+									<TableCell>UpdatedAt</TableCell>
+									<TableCell>{userDetails.updatedAt}</TableCell>
 								</TableRow>
-								<TableRow hover={true} >
-									<TableCell >
-										Username
-									</TableCell>
-									<TableCell >
-										{userDetails.username}
-									</TableCell>
+								<TableRow hover={true}>
+									<TableCell>Username</TableCell>
+									<TableCell>{userDetails.username}</TableCell>
 								</TableRow>
-								<TableRow hover={true} >
-									<TableCell >ID</TableCell>
-									<TableCell >
-										{userDetails.username}
-									</TableCell>
+								<TableRow hover={true}>
+									<TableCell>ID</TableCell>
+									<TableCell>{userDetails.username}</TableCell>
 								</TableRow>
 							</TableBody>
 						</Table>

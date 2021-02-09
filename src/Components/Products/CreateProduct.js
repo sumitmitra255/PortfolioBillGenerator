@@ -4,7 +4,6 @@ import { ProductForm } from './ProductForm'
 import '../../css/products.css'
 import NavLoggedin from '../Navigation/NavLoggedin'
 export const CreateProduct = (props) => {
-	const { toggle } = props
 	const token = useSelector((state) => state.logintoken.token)
 	const productList = useSelector((state) => state.productlist)
 	const dispatch = useDispatch()
@@ -14,7 +13,6 @@ export const CreateProduct = (props) => {
 
 	return (
 		<>
-			{toggle ? <NavLoggedin /> : ''}
 			<div className='box-1'>
 				<div className='btn btn-one'>Create a new Product</div>
 			</div>

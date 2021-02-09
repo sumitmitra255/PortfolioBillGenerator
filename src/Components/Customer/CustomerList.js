@@ -14,6 +14,7 @@ import {
 import '../../css/customer.css'
 import { Selectsearch } from '../../selectsearch/Selectsearch'
 import { useState } from 'react'
+
 export const CustomerList = (props) => {
 	const customerList = useSelector((state) => state.customerlist)
 	const dispatch = useDispatch()
@@ -27,6 +28,7 @@ export const CustomerList = (props) => {
 	const displayCustomer = () => {
 		dispatch(userCustomerDetailsActionGenerator(selectedcust, token, history))
 	}
+	
 	return (
 		<>
 			{toggle ? (
@@ -42,16 +44,12 @@ export const CustomerList = (props) => {
 			)}
 			<TableContainer component={Paper}>
 				<Table aria-label='simple table'>
-					<TableHead >
-						<TableRow >
-							<TableCell >
-								Customer Name
-							</TableCell>
-							<TableCell >
-								Customer ID
-							</TableCell>
-							<TableCell >Edit</TableCell>
-							<TableCell >Delete</TableCell>
+					<TableHead>
+						<TableRow>
+							<TableCell>Customer Name</TableCell>
+							<TableCell>Customer ID</TableCell>
+							<TableCell>Edit</TableCell>
+							<TableCell>Delete</TableCell>
 						</TableRow>
 					</TableHead>
 					<TableBody>
@@ -61,14 +59,14 @@ export const CustomerList = (props) => {
 									.reverse()
 									.map((ele, i) => {
 										return (
-											<TableRow hover={true} key={i }>
+											<TableRow hover={true} key={i}>
 												<DisplayCustomer customerEle={ele} />
 											</TableRow>
 										)
 									})
-							: customerList.reverse().map((ele, i) => {
+							: customerList.map((ele, i) => {
 									return (
-										<TableRow hover={true} key={i }>
+										<TableRow hover={true} key={i}>
 											<DisplayCustomer customerEle={ele} />
 										</TableRow>
 									)

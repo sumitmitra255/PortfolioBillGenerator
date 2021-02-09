@@ -17,6 +17,7 @@ import { CreateCustomer } from './Customer/CreateCustomer'
 import { CreateProduct } from './Products/CreateProduct'
 import { UserInfoDetails } from './UserInfoDetails'
 import { Dashboard } from './Dashboard'
+import LoggedInNavBar from './Navigation/NavLoggedin'
 function App() {
 	const dispatch = useDispatch()
 	let history = useHistory()
@@ -33,22 +34,37 @@ function App() {
 	return (
 		<>
 			<Router>
+				<div className='customernavdiv'>
+					<LoggedInNavBar />
+				</div>
 				<Route exact path='/home' render={(props) => <Home />} />
-				<Route exact path='/register' render={(props) => <Register />} />
+				<Route
+					exact
+					path='/register'
+					render={() => (
+						<>
+							<Register />
+						</>
+					)}
+				/>
 				<Route exact path='/login' render={(props) => <Login />} />
 				<Route
 					exact
-					path='/customerinfo'
+					path='/customerinfo/:id'
 					render={(props) => <CustomerDetails />}
 				/>
 				<Route exact path='/customer' render={(props) => <Customer />} />
 				<Route exact path='/product' render={(props) => <Product />} />
 				<Route
 					exact
-					path='/productinfo'
+					path='/productinfo/:id'
 					render={(props) => <ProductDetails />}
 				/>
-				<Route exact path='/billsinfo' render={(props) => <BillsDetails />} />
+				<Route
+					exact
+					path='/billsinfo/:id'
+					render={(props) => <BillsDetails />}
+				/>
 				<Route exact path='/bill' render={(props) => <Bill />} />
 				<Route
 					exact

@@ -25,6 +25,7 @@ export const Login = (props) => {
 		<>
 			<div className='loginparentdiv'>
 				<h3>sumit1@gmail.com</h3>
+				<h3>superstar25</h3>
 				<div className='box-1'>
 					<div className='btn btn-one'>
 						<span>LOGIN </span>
@@ -58,21 +59,18 @@ export const Login = (props) => {
 								helperText={formik.touched.password && formik.errors.password}
 							/>
 							<Button
-								classes={{
-									root: classes.button,
-								}}
-								fullWidth
-								type='submit'>
+								variant='contained'
+								color='primary'
+								type='submit'
+								fullWidth>
 								Submit
 							</Button>
-							<br />
 							<Button
-								classes={{
-									root: classes.button,
-								}}
+								variant='contained'
+								color='secondary'
 								onClick={() => history.push('/register')}
 								fullWidth>
-								Register
+								Register Here!
 							</Button>
 						</div>
 					</form>

@@ -19,6 +19,7 @@ export const productListActionGenerator = (token) => {
 			})
 			.then((response) => {
 				dispatch(setproductListData(response.data))
+				localStorage.setItem('productlist', JSON.stringify(response.data))
 			})
 			.catch((err) => {
 				swal(
@@ -29,7 +30,13 @@ export const productListActionGenerator = (token) => {
 			}, [])
 	}
 }
-
+export const setProductListLocalStorage = (token, productlist) => {
+	return (dispatch) => {
+		if (token) {
+			dispatch(setproductListData(productlist))
+		}
+	}
+}
 export const createProductActionGenerator = (productList, formData, token) => {
 	return (dispatch) => {
 		if (formData) {
@@ -42,6 +49,7 @@ export const createProductActionGenerator = (productList, formData, token) => {
 						const temp = [response.data]
 						const test = [...temp, ...productList]
 						dispatch(setproductListData(test))
+						localStorage.setItem('productlist', JSON.stringify(test))
 						swal('Whoa!', ` Your Product Add is Sucessful!`, 'success')
 					} else {
 						swal('Oops! Product Add Failed!', response.data.message, 'error')
@@ -78,6 +86,10 @@ export const updateproductActionGenerator = (
 						const index = _.findIndex(productList, { _id: temp._id })
 						const updatedproductList = R.update(index, temp, productList)
 						dispatch(setproductListData(updatedproductList))
+						localStorage.setItem(
+							'productlist',
+							JSON.stringify(updatedproductList)
+						)
 						setEditToggle(false)
 						swal('Whoa!', `Dear  Your Product Update is Sucessful!`, 'success')
 					} else {
@@ -114,6 +126,10 @@ export const deleteproductActionGenerator = (
 					const index = _.findIndex(productList, { _id: temp._id })
 					const updatedproductList = R.remove(index, 1, productList)
 					dispatch(setproductListData(updatedproductList))
+					localStorage.setItem(
+						'productlist',
+						JSON.stringify(updatedproductList)
+					)
 					swal('Whoa!', `Dear  Your Delete Product is Sucessful!`, 'success')
 				} else {
 					swal('Oops! Delete Product Failed!', response.data.message, 'error')
@@ -144,7 +160,7 @@ export const userproductDetailsActionGenerator = (product, token, history) => {
 				})
 				.then((response) => {
 					dispatch(setproductinfoData(response.data))
-					history.push('/productinfo')
+					history.push(`/productinfo/${product._id}`)
 				})
 				.catch((err) => {
 					swal(

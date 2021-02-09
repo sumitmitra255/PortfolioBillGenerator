@@ -73,22 +73,15 @@ export const DisplayCustomer = (props) => {
 			) : (
 				<TableCell>
 					<Button
-						classes={{
-							root: classes.button,
-						}}
-						fullWidth
+						variant='contained'
+						color='primary'
 						onClick={() => setEditToggle(true)}>
 						<EditIcon />
 					</Button>
 				</TableCell>
 			)}
 			<TableCell>
-				<Button
-					classes={{
-						root: classes.button,
-					}}
-					fullWidth
-					onClick={deleteCustomer}>
+				<Button variant='contained' color='secondary' onClick={deleteCustomer}>
 					<DeleteIcon />
 				</Button>
 			</TableCell>

@@ -26,3 +26,13 @@ export const useStyles = makeStyles({
 		width: '100%',
 	},
 })
+export const fabStyles = makeStyles((theme) => ({
+	fab: {
+		margin: theme.spacing(2),
+	},
+	absolute: {
+		position: 'absolute',
+		bottom: theme.spacing(2),
+		right: theme.spacing(3),
+	},
+}))

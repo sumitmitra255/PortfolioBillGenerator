@@ -14,7 +14,6 @@ export const CreateCustomer = (props) => {
 
 	return (
 		<>
-			{toggle ? <NavLoggedin /> : ''}
 			<div className='box-1'>
 				<div className='btn btn-one'>Create a new Customer</div>
 			</div>

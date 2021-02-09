@@ -62,7 +62,7 @@ export const ProductList = (props) => {
 											</TableRow>
 										)
 									})
-							: productList.reverse().map((ele, i) => {
+							: productList.map((ele, i) => {
 									return (
 										<TableRow hover={true} key={i}>
 											<DisplayProduct ProductEle={ele} />

@@ -62,7 +62,7 @@ export const BillsList = (props) => {
 											</TableRow>
 										)
 									})
-							: billsList.reverse().map((ele, i) => {
+							: billsList.map((ele, i) => {
 									return (
 										<TableRow hover={true} key={i}>
 											<Displaybills billsEle={ele} />

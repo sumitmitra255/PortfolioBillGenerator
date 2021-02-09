@@ -19,7 +19,7 @@ export const MyDocument = (props) => {
 					<Text>INVOICE</Text>
 				</View>
 				<View style={styles.section}>
-					<Text>Rs.{data.total}</Text>
+					<Text>Total : Rs.{data.total}</Text>
 				</View>
 			</Page>
 		</Document>

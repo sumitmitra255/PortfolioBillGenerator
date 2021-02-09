@@ -10,7 +10,6 @@ export const CreateBills = (props) => {
 		<>
 			{toggle ? (
 				<>
-					<NavLoggedin />
 					<div className='box-1'>
 						<div className='btn btn-one'>
 							<span>CreateBill</span>

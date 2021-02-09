@@ -18,6 +18,7 @@ export const billsListActionGenerator = (token) => {
 			})
 			.then((response) => {
 				dispatch(setbillsListData(response.data))
+				localStorage.setItem('billlist', JSON.stringify(response.data))
 			})
 			.catch((err) => {
 				swal(
@@ -26,6 +27,13 @@ export const billsListActionGenerator = (token) => {
 					'error'
 				)
 			}, [])
+	}
+}
+export const setBillsListLocalStorage = (token, billlist) => {
+	return (dispatch) => {
+		if (token) {
+			dispatch(setbillsListData(billlist))
+		}
 	}
 }
 export const addBillActionGenerator = (token, formData, billsList, history) => {
@@ -39,10 +47,11 @@ export const addBillActionGenerator = (token, formData, billsList, history) => {
 					if (response.data._id) {
 						billsList.push(response.data)
 						dispatch(setbillsListData(billsList))
+						localStorage.setItem('billlist', JSON.stringify(billsList))
 						dispatch(setbillsinfoData(response.data))
 						dispatch(setSelectedCustomer({}))
 						dispatch(setSelecteditemslist([]))
-						history.push('/billsinfo')
+						history.push(`/billsinfo/${response.data._id}`)
 						swal('Whoa!', `Your Bill Generation is Sucessful!`, 'success')
 					} else {
 						swal(
@@ -133,6 +142,7 @@ export const UpdatebillsActionGenerator = (
 						const index = _.findIndex(billsList, { _id: temp._id })
 						const updatedbillsList = R.update(index, temp, billsList)
 						dispatch(setbillsListData(updatedbillsList))
+						localStorage.setItem('billlist', JSON.stringify(updatedbillsList))
 						setEditToggle(false)
 						swal('Whoa!', `Dear  Your Registration is Sucessful!`, 'success')
 					} else {
@@ -164,6 +174,7 @@ export const deletebillsActionGenerator = (billsList, billsEle, token) => {
 					const index = _.findIndex(billsList, { _id: temp._id })
 					const updatedbillsList = R.remove(index, 1, billsList)
 					dispatch(setbillsListData(updatedbillsList))
+					localStorage.setItem('billlist', JSON.stringify(updatedbillsList))
 					swal('Whoa!', `Dear  Your Registration is Sucessful!`, 'success')
 				} else {
 					swal('Oops! Registrations Failed!', response.data.message, 'error')
@@ -194,7 +205,7 @@ export const userbillsDetailsActionGenerator = (bills, token, history) => {
 				})
 				.then((response) => {
 					dispatch(setbillsinfoData(response.data))
-					history.push('/billsinfo')
+					history.push(`/billsinfo/${bills._id}`)
 				})
 				.catch((err) => {
 					swal(

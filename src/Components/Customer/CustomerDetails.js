@@ -21,7 +21,6 @@ export const CustomerDetails = (props) => {
 		<>
 			{customerDetails ? (
 				<div className='userdisplayparent'>
-					<LoggedInNavBar />
 					<div className='box-1'>
 						<div className='btn btn-one'>
 							<span>Customer Information</span>

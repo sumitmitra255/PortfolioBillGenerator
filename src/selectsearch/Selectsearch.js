@@ -8,20 +8,23 @@ export const Selectsearch = (props) => {
 	const classes = useStyles()
 	return (
 		<>
-			<div>
-				<Select
-					options={options}
-					onChange={(opt) => setter(opt.value)}
-					isSearchable
-				/>
-				<Button
-					classes={{
-						root: classes.button,
-					}}
-					fullWidth
-					onClick={dispatcher}>
-					Get Details
-				</Button>
+			<div className='selectsearchdiv'>
+				<div style={{ width: '1320px' }}>
+					<Select
+						options={options}
+						onChange={(opt) => setter(opt.value)}
+						isSearchable
+					/>
+				</div>
+				<div>
+					<Button
+						classes={{
+							root: classes.button,
+						}}
+						onClick={dispatcher}>
+						Get Details
+					</Button>
+				</div>
 			</div>
 		</>
 	)

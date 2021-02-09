@@ -62,10 +62,8 @@ export const DisplayProduct = (props) => {
 			{editToggle ? (
 				<TableCell>
 					<Button
-						classes={{
-							root: classes.button,
-						}}
-						fullWidth
+						variant='contained'
+						color='primary'
 						onClick={() => setEditToggle(false)}>
 						Cancel Edit
 					</Button>
@@ -73,22 +71,15 @@ export const DisplayProduct = (props) => {
 			) : (
 				<TableCell>
 					<Button
-						classes={{
-							root: classes.button,
-						}}
-						fullWidth
+						variant='contained'
+						color='primary'
 						onClick={() => setEditToggle(true)}>
 						<EditIcon />
 					</Button>
 				</TableCell>
 			)}
 			<TableCell>
-				<Button
-					classes={{
-						root: classes.button,
-					}}
-					fullWidth
-					onClick={deleteProducts}>
+				<Button variant='contained' color='secondary' onClick={deleteProducts}>
 					<DeleteIcon />
 				</Button>
 			</TableCell>

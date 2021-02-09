@@ -29,15 +29,10 @@ export const Displaybills = (props) => {
 	}
 	return (
 		<>
-			<TableCell  onClick={displaybills}>{billsEle._id}</TableCell>
-			<TableCell  onClick={displaybills}>{billsEle.createdAt}</TableCell>
-			<TableCell >
-				<Button
-					classes={{
-						root: classes.button,
-					}}
-					fullWidth
-					onClick={deletebills}>
+			<TableCell onClick={displaybills}>{billsEle._id}</TableCell>
+			<TableCell onClick={displaybills}>{billsEle.createdAt}</TableCell>
+			<TableCell>
+				<Button variant='contained' color='secondary' onClick={deletebills}>
 					<DeleteIcon />
 				</Button>
 			</TableCell>
