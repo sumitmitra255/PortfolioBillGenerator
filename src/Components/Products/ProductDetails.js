@@ -22,7 +22,7 @@ export const ProductDetails = (props) => {
 			{productDetails ? (
 				<>
 					<div className='userdisplayparent'>
-						<LoggedInNavBar />
+					
 						<div className='box-1'>
 							<div className='btn btn-one'>
 								<span>Product Information</span>

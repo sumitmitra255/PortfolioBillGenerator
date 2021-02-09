@@ -25,7 +25,6 @@ export const BillsDetails = (props) => {
 		<>
 			{billsDetails ? (
 				<div className='userdisplayparent'>
-					<LoggedInNavBar />
 					<div height='50px'>
 						<div className='box-1'>
 							<div className='btn btn-one'>

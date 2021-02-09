@@ -5,11 +5,12 @@ import MenuItem from '@material-ui/core/MenuItem'
 import { useStyles } from '../../css/materialuistyles'
 import { useState } from 'react'
 import MenuIcon from '@material-ui/icons/Menu'
+import { useSelector } from 'react-redux'
 const LoggedInNavBar = (props) => {
 	const history = useHistory()
 	const classes = useStyles()
 	const [anchorEl, setAnchorEl] = useState(null)
-
+	const token = useSelector((state) => state.logintoken.token)
 	const handleClick = (event) => {
 		setAnchorEl(event.currentTarget)
 	}
@@ -17,7 +18,7 @@ const LoggedInNavBar = (props) => {
 	const handleClose = () => {
 		setAnchorEl(null)
 	}
-	return (
+	return token ? (
 		<Box
 			classes={{
 				root: classes.boxnav,
@@ -115,6 +116,8 @@ const LoggedInNavBar = (props) => {
 				</MenuItem>
 			</Menu>
 		</Box>
+	) : (
+		<></>
 	)
 }
 export default LoggedInNavBar
