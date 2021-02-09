@@ -34,9 +34,10 @@ function App() {
 	return (
 		<>
 			<Router>
-				<div className='customernavdiv'>
+				{(token)?:(<div className='customernavdiv'>
 					<LoggedInNavBar />
-				</div>
+				</div>):('')}
+				
 				<Route exact path='/home' render={(props) => <Home />} />
 				<Route
 					exact
