@@ -1,10 +1,8 @@
 import { useFormik } from 'formik'
 import { Button, TextField } from '@material-ui/core'
 import { productValidationSchema } from '../../Schema/productValidationSchema'
-import { useStyles } from '../../css/materialuistyles'
 export const ProductForm = (props) => {
 	const { dispatcher, productsDetails } = props
-	const classes = useStyles()
 	const formik = useFormik({
 		initialValues: {
 			name: productsDetails?.name,
@@ -44,13 +42,8 @@ export const ProductForm = (props) => {
 							error={formik.touched.price && Boolean(formik.errors.price)}
 							helperText={formik.touched.price && formik.errors.price}
 						/>
-
-						<Button
-							classes={{
-								root: classes.button,
-							}}
-							fullWidth
-							type='submit'>
+						<br />
+						<Button variant='contained' color='primary' type='submit'>
 							Submit
 						</Button>
 					</form>

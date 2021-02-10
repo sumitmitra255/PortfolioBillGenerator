@@ -1,15 +1,13 @@
 import { Button } from '@material-ui/core'
 import Select from 'react-select'
-import { useStyles } from '../css/materialuistyles'
 
 // import { Displaybills } from './Displaybills'
 export const Selectsearch = (props) => {
 	const { options, setter, dispatcher } = props
-	const classes = useStyles()
 	return (
 		<>
 			<div className='selectsearchdiv'>
-				<div style={{ width: '1320px' }}>
+				<div style={{ width: '1360px' }}>
 					<Select
 						options={options}
 						onChange={(opt) => setter(opt.value)}
@@ -17,11 +15,7 @@ export const Selectsearch = (props) => {
 					/>
 				</div>
 				<div>
-					<Button
-						classes={{
-							root: classes.button,
-						}}
-						onClick={dispatcher}>
+					<Button variant='contained' color='primary' onClick={dispatcher}>
 						Get Details
 					</Button>
 				</div>

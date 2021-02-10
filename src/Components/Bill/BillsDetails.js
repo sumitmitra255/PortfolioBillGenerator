@@ -11,7 +11,6 @@ import {
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import '../../css/userinfodetails.css'
-import LoggedInNavBar from '../Navigation/NavLoggedin'
 import { useStyles } from '../../css/materialuistyles'
 import { MyDocument } from './Pdfocument.js'
 import { PDFDownloadLink } from '@react-pdf/renderer'

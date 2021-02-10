@@ -3,7 +3,6 @@ import { Table, TableBody, TableCell, TableRow } from '@material-ui/core'
 import { CustomerList } from './Customer/CustomerList.js'
 import { ProductList } from './Products/ProductList.js'
 import { BillsList } from './Bill/BillsList.js'
-import LoggedInNavBar from './Navigation/NavLoggedin.js'
 export const Dashboard = (props) => {
 	const customerslist = useSelector((state) => state.customerlist)
 	const productlist = useSelector((state) => state.productlist)

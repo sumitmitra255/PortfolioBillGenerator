@@ -3,7 +3,6 @@ import { ItemCart } from './ItemCart'
 import { SelectCustomer } from './SelectCustomer'
 import { DisplayCart } from './DisplayCart'
 import '../../css/bill.css'
-import NavLoggedin from '../Navigation/NavLoggedin'
 export const CreateBills = (props) => {
 	const { toggle } = props
 	return (
@@ -14,7 +13,7 @@ export const CreateBills = (props) => {
 						<div className='btn btn-one'>
 							<span>CreateBill</span>
 						</div>
-					</div>{' '}
+					</div>
 				</>
 			) : (
 				<h1 className='createbillh1'>Create Bill</h1>

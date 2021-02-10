@@ -7,7 +7,6 @@ import {
 import { useHistory } from 'react-router-dom'
 import { useState } from 'react'
 import { Button, TableCell } from '@material-ui/core'
-import { useStyles } from '../../css/materialuistyles'
 import DeleteIcon from '@material-ui/icons/Delete'
 
 export const Displaybills = (props) => {
@@ -15,7 +14,6 @@ export const Displaybills = (props) => {
 	const [editToggle, setEditToggle] = useState(false)
 	const dispatch = useDispatch()
 	const history = useHistory()
-	const classes = useStyles()
 	const token = useSelector((state) => state.logintoken.token)
 	const billsList = useSelector((state) => state.billlist)
 	const displaybills = () => {

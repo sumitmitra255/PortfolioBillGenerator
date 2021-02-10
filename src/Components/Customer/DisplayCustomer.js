@@ -4,7 +4,6 @@ import {
 	UpdateCustomerActionGenerator,
 	deleteCustomerActionGenerator,
 } from '../../Actions/customerActions'
-import { useStyles } from '../../css/materialuistyles'
 import EditIcon from '@material-ui/icons/Edit'
 import DeleteIcon from '@material-ui/icons/Delete'
 import { useHistory } from 'react-router-dom'
@@ -17,7 +16,6 @@ export const DisplayCustomer = (props) => {
 	const [editToggle, setEditToggle] = useState(false)
 	const dispatch = useDispatch()
 	const history = useHistory()
-	const classes = useStyles()
 	const token = useSelector((state) => state.logintoken.token)
 	const customerList = useSelector((state) => state.customerlist)
 	const displayCustomer = () => {
@@ -62,10 +60,8 @@ export const DisplayCustomer = (props) => {
 			{editToggle ? (
 				<TableCell>
 					<Button
-						classes={{
-							root: classes.button,
-						}}
-						fullWidth
+						variant='contained'
+						color='primary'
 						onClick={() => setEditToggle(false)}>
 						Cancel Edit
 					</Button>

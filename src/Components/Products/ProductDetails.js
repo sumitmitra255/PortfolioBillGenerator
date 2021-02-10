@@ -9,7 +9,6 @@ import {
 	TableRow,
 } from '@material-ui/core'
 import { useSelector } from 'react-redux'
-import LoggedInNavBar from '../Navigation/NavLoggedin'
 import '../../css/userinfodetails.css'
 import { useHistory } from 'react-router-dom'
 import { useStyles } from '../../css/materialuistyles'

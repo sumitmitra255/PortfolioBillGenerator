@@ -35,19 +35,19 @@ export const SelectCustomer = (props) => {
 					Only One Customer can be selected, however You Can ReSelect customer
 					multiple times!
 				</div>
-				<Select
-					options={customerOptions}
-					onChange={(opt) => setSelectedCustomer(opt.value)}
-					isSearchable
-				/>
-				<Button
-					classes={{
-						root: classes.button,
-					}}
-					fullWidth
-					type='submit'>
-					Add Customer
-				</Button>
+				<div style={{ display: 'flex' }}>
+					<Select
+						options={customerOptions}
+						onChange={(opt) => setSelectedCustomer(opt.value)}
+						isSearchable
+						className='createbillselect'
+					/>
+					<Button variant='contained' color='primary' type='submit'>
+						Add Customer
+					</Button>
+					<br />
+					<br />
+				</div>
 			</form>
 		</>
 	)

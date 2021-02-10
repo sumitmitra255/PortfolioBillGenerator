@@ -5,11 +5,9 @@ import { useHistory } from 'react-router-dom'
 import { loginValidationSchema } from '../Schema/loginValidationSchema'
 import { loginActionGenerator } from '../Actions/actions'
 import '../css/login.css'
-import { useStyles } from '../css/materialuistyles'
 export const Login = (props) => {
 	const dispatch = useDispatch()
 	let history = useHistory()
-	const classes = useStyles()
 	const formik = useFormik({
 		initialValues: {
 			email: '',

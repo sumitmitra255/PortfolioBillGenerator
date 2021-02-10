@@ -38,7 +38,7 @@ export const setBillsListLocalStorage = (token, billlist) => {
 }
 export const addBillActionGenerator = (token, formData, billsList, history) => {
 	return (dispatch) => {
-		if (formData) {
+		if (formData.customer && formData.lineItems.length) {
 			axios
 				.post('/bills', formData, {
 					headers: { Authorization: `Bearer ${token}` },

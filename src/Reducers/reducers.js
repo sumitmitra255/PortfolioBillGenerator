@@ -34,4 +34,3 @@ export const userinfoReducer = (state = initialuserinfo, action) => {
 		}
 	}
 }
-

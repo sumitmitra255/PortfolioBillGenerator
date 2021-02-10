@@ -15,11 +15,11 @@ import {
 	deleteItemListActionGenerator,
 } from '../../Actions/billsActions'
 import '../../css/displaycart.css'
-import { useStyles } from '../../css/materialuistyles'
+import DeleteIcon from '@material-ui/icons/Delete'
+import swal from 'sweetalert'
 export const DisplayCart = (props) => {
 	const dispatch = useDispatch()
 	const history = useHistory()
-	const classes = useStyles()
 	const stateProducts = useSelector((state) => state.selecteditems)
 	const stateCustomer = useSelector((state) => state.selectedcustomer)
 	const token = useSelector((state) => state.logintoken.token)
@@ -28,40 +28,39 @@ export const DisplayCart = (props) => {
 		return { product: ele.lineItems._id, quantity: ele.quantity }
 	})
 	const generatebill = () => {
-		const addBilldispatchObject = {
-			date: stateCustomer.date,
-			customer: `${stateCustomer.customer._id}`,
-			lineItems: lineObject,
+		if (stateCustomer.customer && lineObject.length) {
+			const addBilldispatchObject = {
+				date: stateCustomer.date,
+				customer: `${stateCustomer.customer._id}`,
+				lineItems: lineObject,
+			}
+			dispatch(
+				addBillActionGenerator(token, addBilldispatchObject, billList, history)
+			)
+		} else {
+			if (!stateCustomer.customer) {
+				swal('Choose Customer first', '', 'error')
+			} else {
+				swal('choose items first', '', 'error')
+			}
 		}
-		dispatch(
-			addBillActionGenerator(token, addBilldispatchObject, billList, history)
-		)
 	}
 	const handleDelete = (deletedItem) => {
 		dispatch(deleteItemListActionGenerator(deletedItem, stateProducts))
 	}
 	return (
 		<>
-			<Button
-				classes={{
-					root: classes.button,
-				}}
-				fullWidth
-				onClick={generatebill}>
+			<Button variant='contained' color='primary' onClick={generatebill}>
 				Generate Bill
 			</Button>
 			<div className='cartlist'>
 				<TableContainer component={Paper}>
 					<Table aria-label='simple table'>
-						<TableHead >
-							<TableRow >
-								<TableCell >
-									Product Name
-								</TableCell>
-								<TableCell >
-									Price Per Unit
-								</TableCell>
-								<TableCell ></TableCell>
+						<TableHead>
+							<TableRow>
+								<TableCell>Product Name</TableCell>
+								<TableCell>Price Per Unit</TableCell>
+								<TableCell></TableCell>
 							</TableRow>
 						</TableHead>
 						<TableBody>
@@ -69,17 +68,13 @@ export const DisplayCart = (props) => {
 								return (
 									<TableRow hover={true} key={i + Math.random()}>
 										<TableCell>{ele.lineItems.name}</TableCell>
-										<TableCell >
-											Rs : {ele.lineItems.price}
-										</TableCell>
-										<TableCell >
+										<TableCell>Rs : {ele.lineItems.price}</TableCell>
+										<TableCell>
 											<Button
-												classes={{
-													root: classes.button,
-												}}
-												fullWidth
+												variant='contained'
+												color='secondary'
 												onClick={() => handleDelete(ele)}>
-												Delete
+												<DeleteIcon />
 											</Button>
 										</TableCell>
 									</TableRow>

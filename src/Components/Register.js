@@ -1,15 +1,13 @@
 import { useDispatch } from 'react-redux'
 import { useFormik } from 'formik'
-import { Button, TextareaAutosize, TextField } from '@material-ui/core'
+import { Button, TextField } from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
 import { registerValidationSchema } from '../Schema/registerValidationSchema'
 import { registerActionGenerator } from '../Actions/actions'
 import '../css/register.css'
-import { useStyles } from '../css/materialuistyles'
 export const Register = (props) => {
 	const dispatch = useDispatch()
 	let history = useHistory()
-	const classes = useStyles()
 	const formik = useFormik({
 		initialValues: {
 			username: '',
@@ -106,9 +104,7 @@ export const Register = (props) => {
 								variant='contained'
 								color='primary'
 								type='submit'
-								fullWidth
-								fullWidth
-								type='submit'>
+								fullWidth>
 								Submit
 							</Button>
 							<br />

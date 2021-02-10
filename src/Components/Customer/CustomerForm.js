@@ -1,11 +1,9 @@
 import { useFormik } from 'formik'
 import { Button, TextField } from '@material-ui/core'
 import { customerValidationSchema } from '../../Schema/customerValidationSchema'
-import { useStyles } from '../../css/materialuistyles'
 
 export const CustomerForm = (props) => {
 	const { dispatcher, customerDetails } = props
-	const classes = useStyles()
 	const formik = useFormik({
 		initialValues: {
 			name: customerDetails?.name,
@@ -56,13 +54,8 @@ export const CustomerForm = (props) => {
 							error={formik.touched.mobile && Boolean(formik.errors.mobile)}
 							helperText={formik.touched.mobile && formik.errors.mobile}
 						/>
-
-						<Button
-							classes={{
-								root: classes.button,
-							}}
-							fullWidth
-							type='submit'>
+						<br />
+						<Button variant='contained' color='primary' type='submit'>
 							Submit
 						</Button>
 					</form>

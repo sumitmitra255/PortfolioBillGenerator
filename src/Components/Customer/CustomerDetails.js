@@ -11,7 +11,6 @@ import {
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import '../../css/userinfodetails.css'
-import LoggedInNavBar from '../Navigation/NavLoggedin'
 import { useStyles } from '../../css/materialuistyles'
 export const CustomerDetails = (props) => {
 	let history = useHistory()
@@ -59,9 +58,8 @@ export const CustomerDetails = (props) => {
 								<TableRow hover={true}>
 									<TableCell>
 										<Button
-											classes={{
-												root: classes.button,
-											}}
+											variant='contained'
+											color='primary'
 											onClick={history.goBack}>
 											Go Back
 										</Button>

@@ -4,7 +4,6 @@ import {
 	updateproductActionGenerator,
 	deleteproductActionGenerator,
 } from '../../Actions/productActions'
-import { useStyles } from '../../css/materialuistyles'
 import { useHistory } from 'react-router-dom'
 import { ProductForm } from './ProductForm'
 import { useState } from 'react'
@@ -17,7 +16,6 @@ export const DisplayProduct = (props) => {
 	const [editToggle, setEditToggle] = useState(false)
 	const dispatch = useDispatch()
 	const history = useHistory()
-	const classes = useStyles()
 	const token = useSelector((state) => state.logintoken.token)
 	const productList = useSelector((state) => state.productlist)
 	const displayProducts = () => {
