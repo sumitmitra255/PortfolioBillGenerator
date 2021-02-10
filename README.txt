@@ -1,4 +1,4 @@
-live demo :-  https://billingapp-sumit.herokuapp.com/
+live demo :-  https://billingapp-sumit.herokuapp.com/ **(i use free service from heroku, sometimes the live link stops working or crashes please message me or wait for sometime and reload)
 
 # PortfolioBillGenerator
 Portfolio project - Bill Generator
